@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>MakeBig - Web & Tech Solutions</title>
+    <title>MakeBig - Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
@@ -20,10 +20,10 @@
         .highlight-box {
             background: linear-gradient(to right, #FF69B4, #FFB6C1);
         }
-        .service-card {
+        .project-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .service-card:hover {
+        .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
@@ -47,44 +47,35 @@
             <header class="flex justify-between items-center p-6">
                 <div class="text-2xl font-bold">MakeBig</div>
                 <nav class="space-x-4">
-                    <a href="index.html" class="text-white font-semibold">Home</a>
+                    <a href="index.html" class="text-gray-300 hover:text-white">Home</a>
                     <a href="services.html" class="text-gray-300 hover:text-white">Services</a>
-                    <a href="portfolio.html" class="text-gray-300 hover:text-white">Portfolio</a>
+                    <a href="portfolio.html" class="text-white font-semibold">Portfolio</a>
                     <a href="contact.html" class="text-gray-300 hover:text-white">Contact</a>
                 </nav>
             </header>
             <!-- Hero Section -->
             <section class="p-6 md:p-12 text-center animate-slide-in">
-                <h1 class="text-5xl font-extrabold mb-4">MakeBig Web & Tech Solutions</h1>
-                <p class="text-xl text-gray-300 mb-6">Transforming Your Vision into Powerful Digital Solutions</p>
-                <a href="services.html" class="inline-block px-6 py-3 text-lg font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition">Explore Services</a>
+                <h1 class="text-4xl font-bold mb-4">Our Portfolio</h1>
+                <p class="text-gray-300">Explore some of the projects we've successfully delivered for our clients.</p>
             </section>
-            <!-- Services Overview -->
+            <!-- Portfolio Grid -->
             <section class="p-6 md:p-12">
-                <h2 class="text-3xl font-bold mb-6 text-center">Our Key Services</h2>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="p-6 rounded-lg card-gradient service-card">
-                        <h3 class="text-lg font-semibold mb-2 text-white">Frontend Development</h3>
-                        <p class="text-sm text-gray-200">Crafting responsive, user-friendly interfaces using React, Vue, and modern JavaScript frameworks.</p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="project-card">
+                        <img src="./public/ecommerce.png" alt="Project 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h2 class="text-2xl font-semibold mb-2">E-commerce Platform</h2>
+                        <p class="text-gray-300">Developed a fully functional e-commerce website with secure payment integration and user-friendly interface.</p>
                     </div>
-                    <div class="p-6 rounded-lg card-gradient service-card">
-                        <h3 class="text-lg font-semibold mb-2 text-white">Backend Development</h3>
-                        <p class="text-sm text-gray-200">Building robust, scalable server-side solutions with Node.js, Python, and database technologies.</p>
+                    <div class="project-card">
+                        <img src="./public/digital-marketing.png" alt="Project 2" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h2 class="text-2xl font-semibold mb-2">Social Media App</h2>
+                        <p class="text-gray-300">Created a social media platform with real-time messaging and content sharing features.</p>
                     </div>
-                    <div class="p-6 rounded-lg card-gradient service-card">
-                        <h3 class="text-lg font-semibold mb-2 text-white">Cloud Integration</h3>
-                        <p class="text-sm text-gray-200">Leveraging AWS, Azure, and Google Cloud for scalable, secure, and cost-effective solutions.</p>
-                    </div>
-                </div>
-                <div class="text-center mt-6">
-                    <a href="services.html" class="inline-block px-6 py-3 text-lg font-semibold text-white bg-pink-500 rounded-full hover:bg-pink-600 transition">View All Services</a>
                 </div>
             </section>
-            <!-- About Section -->
+            <!-- Call to Action -->
             <section class="p-6 md:p-12 text-center">
-                <h2 class="text-3xl font-bold mb-4">About MakeBig</h2>
-                <p class="text-gray-300 mb-6">At MakeBig, we specialize in delivering cutting-edge web and tech solutions tailored to your business needs. Our team is dedicated to transforming your ideas into reality with innovation and expertise.</p>
-                <a href="contact.html" class="inline-block px-6 py-3 text-lg font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition">Contact Us</a>
+                <a href="contact.html" class="inline-block px-6 py-3 text-lg font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition">Start Your Project</a>
             </section>
             <!-- Footer -->
             <footer class="p-6 text-center">
