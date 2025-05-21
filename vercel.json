@@ -7,6 +7,7 @@
   "routes": [
     { "src": "/api/send-email", "dest": "/api/send-email.js" },
     { "src": "/(index|portfolio|contact|services)\\.html", "dest": "/$1.html" },
+    { "src": "/(.*\\.(jpg|png|gif|svg|ico))", "dest": "/$1" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
