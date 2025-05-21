@@ -1,0 +1,22 @@
+{
+    "dependencies": {
+        "resend": "^2.0.0"
+    },
+    "name": "makebig",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/comeonkillthecode/MakeBig.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/comeonkillthecode/MakeBig/issues"
+    },
+    "homepage": "https://github.com/comeonkillthecode/MakeBig#readme",
+    "description": ""
+}
