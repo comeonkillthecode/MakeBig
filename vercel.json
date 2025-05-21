@@ -9,5 +9,18 @@
     { "src": "/api/send-email", "dest": "/api/send-email.js" },
     { "src": "/(index|portfolio|contact|services)\\.html", "dest": "/$1.html" },
     { "src": "/(.*)", "dest": "/index.html" }
-  ]
+  ],
+   "images": {
+    "sizes": [256, 640, 1080, 2048, 3840],
+    "localPatterns": [{
+      "pathname": "^/assets/.*$",
+      "search": ""
+    }],
+    "minimumCacheTTL": 60,
+    "qualities": [25, 50, 75],
+    "formats": ["image/png"],
+    "dangerouslyAllowSVG": false,
+    "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
+    "contentDispositionType": "inline"
+  }
 }
