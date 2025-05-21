@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>MakeBig - Web & Tech Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-overlay {
+            background: linear-gradient(to bottom right, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+        }
+        .card-gradient {
+            background: linear-gradient(to right, #4A00E0, #8E2DE2);
+        }
+        .highlight-box {
+            background: linear-gradient(to right, #FF69B4, #FFB6C1);
+        }
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .animate-slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col p-4">
+    <div class="w-full max-w-6xl mx-auto bg-gray-800 shadow-2xl rounded-2xl overflow-hidden relative">
+        <div class="absolute top-0 left-0 w-full h-full opacity-30">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-purple-600 rounded-full mix-blend-screen filter blur-xl opacity-50 animate-pulse"></div>
+            <div class="absolute bottom-20 right-20 w-40 h-40 bg-pink-500 rounded-full mix-blend-screen filter blur-xl opacity-50 animate-pulse animation-delay-2000"></div>
+        </div>
+        <div class="relative z-10 p-6 md:p-12">
+            <!-- Header -->
+            <header class="flex justify-between items-center mb-8">
+                <div class="inline-block px-4 py-2 text-sm font-semibold text-white bg-pink-500 rounded-full shadow-md">
+                    @MakeBigTech
+                </div>
+                <div class="p-2 bg-white bg-opacity-10 rounded-full backdrop-filter backdrop-blur-sm">
+                    <span class="material-icons text-yellow-400">star_border</span>
+                </div>
+            </header>
+
+            <!-- Hero Section -->
+            <div class="grid md:grid-cols-2 gap-10 items-center mb-12">
+                <div class="space-y-6 animate-slide-in">
+                    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
+                        MakeBig <br/> Web & Tech <br/> Solutions
+                    </h1>
+                    <p class="text-xl text-gray-300">
+                        Transforming Your Vision into Powerful Digital Solutions
+                    </p>
+                    <a href="#contact" class="inline-block px-6 py-3 text-lg font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition">Get Started</a>
+                </div>
+                <div class="relative h-64 md:h-96">
+                    <img alt="Developer coding" class="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtAa8cw2_7ImT03-ky-WujIkaT4ScTFozBNW6SHZxlKZvaxh2MlKTIZZR8GzdPTTyA0H147d9nydEZ5bhFh1ZUecQnvJaRxMSVRqA5Zdwq7FNP30UXlodwH3fbqs7G2PU4wEQD9H3OSrSQhikFU2qfJdF_TAhwGc7ltWoeQwl3mBkGx4I_l4D1WRzVQyfDvX6vIT59b7D-iYWHSo66bPDUJfIKguZcjiKcZ9oCZNtEcRcFkfey3QqoBLV_ajcffIFn36_XApHa1SA"/>
+                    <div class="absolute -bottom-8 -right-8 w-32 h-32 md:w-40 md:h-40 border-4 border-gray-700 rounded-lg shadow-2xl overflow-hidden">
+                        <img alt="Tech interface" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApz35u1EjpjkJK71X7vKmNF4ONu3i1GR1sTvZI48ETCYyM-3OVa5s3kqMNED21kdClUeGpV33dKL6uS0EQvEYRNk0TIxrBRimrRci9ANlRcCTjpFO_zAQGVwZVZLomaz2pbDnbl16D6yF8EkusdPNij-I_QtkUDtNo_snw2LicvbXirdsIEdWznJWmZV1VshWpTc5MMzVVP-2yyOjNsTJ13uQiDrhwU0tUM4Wox3MESit1FPW8Ot_uT-RwU-tJ92DHRAiQB7qylC8"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Section -->
+            <section class="mt-12 p-8 rounded-2xl highlight-box shadow-lg">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Our Services</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-6 rounded-lg card-gradient service-card">
+                        <h3 class="text-lg font-semibold mb-2 text-white">Frontend Development</h3>
+                        <p class="text-sm text-gray-200">Crafting responsive, user-friendly interfaces using React, Vue, and modern JavaScript frameworks to deliver seamless user experiences.</p>
+                    </div>
+                    <div class="p-6 rounded-lg card-gradient service-card">
+                        <h3 class="text-lg font-semibold mb-2 text-white">Backend Development</h3>
+                        <p class="text-sm text-gray-200">Building robust, scalable server-side solutions with Node.js, Python, and database technologies like MongoDB and PostgreSQL.</p>
+                    </div>
+                    <div class="p-6 rounded-lg card-gradient service-card">
+                        <h3 class="text-lg font-semibold mb-2 text-white">Full-Stack Solutions</h3>
+                        <p class="text-sm text-gray-200">Delivering end-to-end web applications by integrating frontend, backend, and cloud services for maximum efficiency.</p>
+                    </div>
+                    <div class="p-6 rounded-lg card-gradient service-card">
+                        <h3 class="text-lg font-semibold mb-2 text-white">Cloud Integration</h3>
+                        <p class="text-sm text-gray-200">Leveraging AWS, Azure, and Google Cloud to deploy scalable, secure, and cost-effective cloud-based solutions.</p>
+                    </div>
+                    <div class="p-6 rounded-lg card-gradient service-card">
+                        <h3 class="text-lg font-semibold mb-2 text-white">API Development</h3>
+                        <p class="text-sm text-gray-200">Designing and implementing secure, RESTful APIs to connect your applications and enhance functionality.</p>
+                    </div>
+                    <div class="p-6 rounded-lg card-gradient service-card">
+                        <h3 class="text-lg font-semibold mb-2 text-white">Tech Consulting</h3>
+                        <p class="text-sm text-gray-200">Providing expert guidance on tech stack selection, architecture design, and digital transformation strategies.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="mt-12 grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <img alt="MakeBig robot mascot" class="w-64 h-auto mx-auto md:mx-0 animate-slide-in" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMsX7vH69RtNztBj74msm8iiaHxjOcJU87dOr-aTCmY9iA-lYoJpyDm7orWUIKmGDoUGCOVNQNBM7rj9rhg8x1zkTlIofl52PV7Rsfn-S25A_5i1NKdf_ij4LxKpKdGpgPD4h2QYtZcyNaeUg3-hQM9Y2iSjQap1NDSTz5Cs7nFeYNzdcmqMd5IGZWTY2h4cTPsl1Xq8xk_AvJd_P-DXt24azyNb50opmbuuOt__Ith5DDOEd11PSPcZn52Oh9LFw9-gFlAjGv_Mc"/>
+                </div>
+                <div class="text-center md:text-left animate-slide-in">
+                    <h2 class="text-3xl font-semibold mb-4">About MakeBig</h2>
+                    <p class="text-gray-400 mb-6">
+                        At MakeBig, we specialize in delivering cutting-edge web and tech solutions tailored to your business needs. From crafting intuitive frontend interfaces to building robust backend systems, our team is dedicated to transforming your ideas into reality. We combine innovation, expertise, and a client-centric approach to drive digital success.
+                    </p>
+                    <a href="#contact" class="inline-block px-6 py-3 text-lg font-semibold text-white bg-pink-500 rounded-full hover:bg-pink-600 transition">Learn More</a>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="mt-12 p-8 rounded-2xl bg-gray-700 shadow-lg">
+                <h2 class="text-3xl font-bold mb-6 text-center">Get in Touch</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <p class="text-gray-300">Ready to elevate your business with MakeBig? Contact us today to discuss your project!</p>
+                        <div class="flex flex-col space-y-4">
+                            <div class="flex items-center">
+                                <span class="material-icons text-pink-400 mr-2">phone</span>
+                                <span>+123-456-7890</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="material-icons text-pink-400 mr-2">email</span>
+                                <span>contact@makebig.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="material-icons text-pink-400 mr-2">location_on</span>
+                                <span>123 Tech Hub, Silicon Valley, CA 94043</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <form id="contact-form" class="space-y-4">
+                            <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-600" required/>
+                            <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-600" required/>
+                            <textarea name="message" placeholder="Your Message" rows="4" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-600" required></textarea>
+                            <button type="submit" class="w-full px-6 py-3 text-lg font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition">Send Message</button>
+                        </form>
+                        <p id="form-message" class="text-center mt-4 text-gray-300"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="mt-12 text-center">
+                <img alt="MakeBig logo" class="h-10 mx-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnM3Tl6Kmz3lXWIfuo3u1FmRiTqD8PCElv6Pr5zAMJKq3QBRXzN78GoZpQuiN9UZrdWFtJOHk9L6vw9qHpa3Tw1f1iZTS4lZHva0H4I7IIhATFmzAahGtbpyaYlYnWl7F01bMeMmbyBkIB3Onswa8xEwCLWWK532JDwep7DQuBp4PzdbFcMYc-VhHxh_rBG4VGj53-ZgVYgnHhRQtYjZIh3OmTh2xKdu7bqjTuDouz3TTePQo7JdUxfDULP9z7Wxy1flkJFlck2mM"/>
+                <p class="text-gray-400 mt-4">© 2025 MakeBig. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                message: formData.get('message')
+            };
+            const messageEl = document.getElementById('form-message');
+            messageEl.textContent = 'Sending...';
+
+            try {
+                const response = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    messageEl.textContent = 'Message sent successfully!';
+                    form.reset();
+                } else {
+                    messageEl.textContent = 'Error: ' + result.error;
+                }
+            } catch (error) {
+                messageEl.textContent = 'Error: Failed to send message.';
+            }
+        });
+    </script>
+</body>
+</html>
