@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -26,6 +27,30 @@
         @keyframes slideIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        .whatsapp-bubble {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .whatsapp-bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+        }
+        .whatsapp-bubble i {
+            font-size: 35px;
         }
     </style>
 </head>
@@ -58,6 +83,10 @@
                                 <span>+91 8367406492, +91 8331851851, +91 9059809284</span>
                             </div>
                             <div class="flex items-center">
+                                <i class="fab fa-whatsapp text-2xl text-purple-400 mr-2"></i>
+                                <a href="https://wa.me/918367406492?text=Hi%2C%20I%20am%20looking%20for%20web%20services." target="_blank" class="hover:text-purple-400 transition">Message on WhatsApp</a>
+                            </div>
+                            <div class="flex items-center">
                                 <span class="material-icons text-purple-400 mr-2">email</span>
                                 <span>booraakash@gmail.com</span>
                             </div>
@@ -85,6 +114,10 @@
             </footer>
         </div>
     </div>
+    <!-- WhatsApp Bubble -->
+    <a href="https://wa.me/918367406492?text=Hi%2C%20I%20am%20looking%20for%20web%20services." target="_blank" class="whatsapp-bubble">
+        <i class="fab fa-whatsapp"></i>
+    </a>
     <script>
         document.getElementById('contact-form').addEventListener('submit', async (e) => {
             e.preventDefault();
