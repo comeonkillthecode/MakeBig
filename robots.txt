@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://makebig.com/sitemap.xml
+
+# Allow all bots to crawl all content
+# Adjust the sitemap URL to your actual domain 
