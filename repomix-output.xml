@@ -1,0 +1,1530 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+api/
+  send-email.js
+public/
+  assets/
+    digital-marketing.png
+    ecommerce.png
+  api-illustration.png
+  backend-illustration.png
+  consulting-illustration.png
+  frontend-illustration.png
+  hero-bg.png
+  shopify-illustration.png
+services/
+  backend.html
+  consulting.html
+  frontend.html
+  shopify.html
+.gitignore
+contact.html
+index.html
+package.json
+portfolio.html
+robots.txt
+services.html
+sitemap.xml
+vercel.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".gitignore">
+node_modules
+</file>
+
+<file path="robots.txt">
+User-agent: *
+Allow: /
+Sitemap: https://makebig.com/sitemap.xml
+
+# Allow all bots to crawl all content
+# Adjust the sitemap URL to your actual domain
+</file>
+
+<file path="sitemap.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://makebig.com/</loc>
+        <lastmod>2025-05-28</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://makebig.com/services.html</loc>
+        <lastmod>2025-05-28</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://makebig.com/contact.html</loc>
+        <lastmod>2025-05-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+</urlset>
+</file>
+
+<file path="api/send-email.js">
+const { Resend } = require('resend');
+
+module.exports = async (req, res) => {
+    if (req.method !== 'POST') {
+        console.error('Invalid method:', req.method);
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
+
+    let body;
+    try {
+        // If req.body is a Buffer, convert it to a string
+        if (Buffer.isBuffer(req.body)) {
+            body = JSON.parse(req.body.toString());
+        } else if (typeof req.body === 'string') {
+            body = JSON.parse(req.body);
+        } else {
+            body = req.body; // If it's already an object (parsed by Vercel)
+        }
+    } catch (error) {
+        console.error('JSON parse error:', error.message);
+        return res.status(400).json({ error: 'Invalid JSON in request body' });
+    }
+
+    const { name, email, message } = body;
+
+    if (!name || !email || !message) {
+        console.error('Missing fields:', { name, email, message });
+        return res.status(400).json({ error: 'Missing required fields: name, email, or message' });
+    }
+
+    if (!process.env.RESEND_API_KEY) {
+        console.error('RESEND_API_KEY not found');
+        return res.status(500).json({ error: 'Resend API key is not configured' });
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    try {
+        await resend.emails.send({
+            from: 'onboarding@resend.dev',
+            to: 'akashboora143@gmail.com',
+            subject: `New Contact Form Submission from ${name}`,
+            text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+        });
+        return res.status(200).json({ message: 'Email sent successfully' });
+    } catch (error) {
+        console.error('Resend error:', error.message, error.stack);
+        return res.status(500).json({ error: `Failed to send email: ${error.message}` });
+    }
+};
+</file>
+
+<file path="services/backend.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Backend & Cloud - MakeBig</title>
+    <meta name="description"
+        content="Robust backend development and cloud infrastructure solutions. AWS, Node.js, and scalable architecture." />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <div class="fixed inset-0 z-0">
+        <img src="../public/hero-bg.png" alt="Background" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-transparent to-gray-900"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        <header class="flex justify-between items-center p-6 md:px-12 backdrop-blur-sm border-b border-gray-800/50">
+            <div class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                MakeBig</div>
+            <nav class="space-x-6 hidden md:block">
+                <a href="../index.html" class="text-gray-300 hover:text-white transition">Home</a>
+                <a href="../services.html" class="text-white font-semibold">Services</a>
+                <a href="../contact.html"
+                    class="px-4 py-2 text-sm font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition">Contact</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <span class="material-icons text-3xl">menu</span>
+            </button>
+        </header>
+
+        <main class="flex-grow p-6 md:p-12 max-w-7xl mx-auto w-full">
+            <div class="flex flex-col md:flex-row gap-12 items-center mb-16">
+                <div class="md:w-1/2">
+                    <div
+                        class="inline-block px-4 py-1 mb-4 text-sm font-semibold text-blue-400 bg-blue-400/10 rounded-full border border-blue-400/20">
+                        Infrastructure & Security
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                        Scalable <br />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Backend
+                            Solutions</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 leading-relaxed mb-8">
+                        Future-proof your application with robust APIs, microservices, and secure cloud infrastructure
+                        designed for high availability.
+                    </p>
+                    <a href="../contact.html"
+                        class="inline-block px-8 py-4 text-lg font-bold text-white bg-blue-600 rounded-full hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition transform hover:-translate-y-1">
+                        Secure Your Infra
+                    </a>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="absolute inset-0 bg-blue-600 blur-3xl opacity-20 animate-pulse"></div>
+                    <img src="../public/backend-illustration.png" alt="Backend Development"
+                        class="relative z-10 w-full hover:scale-105 transition duration-500 drop-shadow-2xl">
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300">
+                    <span class="material-icons text-4xl text-blue-400 mb-4">cloud_queue</span>
+                    <h3 class="text-xl font-bold mb-3">Cloud Native</h3>
+                    <p class="text-gray-400">AWS & Azure certified. We handle CI/CD, Docker containerization, and
+                        Kubernetes orchestration.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300">
+                    <span class="material-icons text-4xl text-blue-400 mb-4">storage</span>
+                    <h3 class="text-xl font-bold mb-3">Database Design</h3>
+                    <p class="text-gray-400">Optimized schema design for PostgreSQL and MongoDB. We ensure data
+                        integrity and sub-millisecond query performance.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300">
+                    <span class="material-icons text-4xl text-blue-400 mb-4">security</span>
+                    <h3 class="text-xl font-bold mb-3">Security First</h3>
+                    <p class="text-gray-400">OWASP compliance, OAuth2 implementation, and automated penetration testing
+                        integration.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="p-8 text-center border-t border-gray-800/50 text-gray-400">
+            <p>&copy; 2025 MakeBig. Powered by the Cloud.</p>
+        </footer>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="hidden fixed inset-0 z-50 bg-gray-900 bg-opacity-95 backdrop-blur-lg flex flex-col items-center justify-center space-y-8 transition-all duration-300 opacity-0 transform scale-95 pointer-events-none">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-purple-400 focus:outline-none">
+            <span class="material-icons text-4xl">close</span>
+        </button>
+        <a href="../index.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Home</a>
+        <a href="../services.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Services</a>
+        <a href="../contact.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Contact</a>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                }, 10);
+            } else {
+                mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="services/consulting.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tech Consulting - MakeBig</title>
+    <meta name="description" content="Strategic technology consulting, digital transformation, and CTO-as-a-service." />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <div class="fixed inset-0 z-0">
+        <img src="../public/hero-bg.png" alt="Background" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-transparent to-gray-900"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        <header class="flex justify-between items-center p-6 md:px-12 backdrop-blur-sm border-b border-gray-800/50">
+            <div class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                MakeBig</div>
+            <nav class="space-x-6 hidden md:block">
+                <a href="../index.html" class="text-gray-300 hover:text-white transition">Home</a>
+                <a href="../services.html" class="text-white font-semibold">Services</a>
+                <a href="../contact.html"
+                    class="px-4 py-2 text-sm font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition">Contact</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <span class="material-icons text-3xl">menu</span>
+            </button>
+        </header>
+
+        <main class="flex-grow p-6 md:p-12 max-w-7xl mx-auto w-full">
+            <div class="flex flex-col md:flex-row gap-12 items-center mb-16">
+                <div class="md:w-1/2">
+                    <div
+                        class="inline-block px-4 py-1 mb-4 text-sm font-semibold text-yellow-500 bg-yellow-500/10 rounded-full border border-yellow-500/20">
+                        Strategic Advisory
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                        Visionary <br />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">Tech
+                            Consulting</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 leading-relaxed mb-8">
+                        Navigate the complex digital landscape with confidence. We align technology with your business
+                        goals to drive efficiency and innovation.
+                    </p>
+                    <a href="../contact.html"
+                        class="inline-block px-8 py-4 text-lg font-bold text-gray-900 bg-yellow-400 rounded-full hover:bg-yellow-300 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] transition transform hover:-translate-y-1">
+                        Book Consultation
+                    </a>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="absolute inset-0 bg-yellow-600 blur-3xl opacity-20 animate-pulse"></div>
+                    <img src="../public/consulting-illustration.png" alt="Tech Consulting"
+                        class="relative z-10 w-full hover:scale-105 transition duration-500 drop-shadow-2xl">
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4 text-yellow-400">Digital Transformation</h3>
+                    <p class="text-gray-300">We analyze your legacy systems and map out a modernization path that
+                        minimizes risk while maximizing ROI.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4 text-yellow-400">CTO-as-a-Service</h3>
+                    <p class="text-gray-300">Get executive-level technology leadership without the full-time overhead.
+                        Perfect for startups and growing SMBs.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="p-8 text-center border-t border-gray-800/50 text-gray-400">
+            <p>&copy; 2025 MakeBig. Strategic Partners.</p>
+        </footer>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="hidden fixed inset-0 z-50 bg-gray-900 bg-opacity-95 backdrop-blur-lg flex flex-col items-center justify-center space-y-8 transition-all duration-300 opacity-0 transform scale-95 pointer-events-none">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-purple-400 focus:outline-none">
+            <span class="material-icons text-4xl">close</span>
+        </button>
+        <a href="../index.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Home</a>
+        <a href="../services.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Services</a>
+        <a href="../contact.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Contact</a>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                }, 10);
+            } else {
+                mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="services/frontend.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Frontend Architecture - MakeBig</title>
+    <meta name="description"
+        content="Modern frontend development using React, Vue.js, and Next.js. We build responsive, accessible, and high-performance user interfaces." />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <div class="fixed inset-0 z-0">
+        <img src="../public/hero-bg.png" alt="Background" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-transparent to-gray-900"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        <header class="flex justify-between items-center p-6 md:px-12 backdrop-blur-sm border-b border-gray-800/50">
+            <div class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                MakeBig</div>
+            <nav class="space-x-6 hidden md:block">
+                <a href="../index.html" class="text-gray-300 hover:text-white transition">Home</a>
+                <a href="../services.html" class="text-white font-semibold">Services</a>
+                <a href="../contact.html"
+                    class="px-4 py-2 text-sm font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition">Contact</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <span class="material-icons text-3xl">menu</span>
+            </button>
+        </header>
+
+        <main class="flex-grow p-6 md:p-12 max-w-7xl mx-auto w-full">
+            <div class="flex flex-col md:flex-row gap-12 items-center mb-16">
+                <div class="md:w-1/2">
+                    <div
+                        class="inline-block px-4 py-1 mb-4 text-sm font-semibold text-pink-500 bg-pink-500/10 rounded-full border border-pink-500/20">
+                        UI/UX Engineering
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                        immersive <br />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-600">Frontend
+                            Experiences</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 leading-relaxed mb-8">
+                        We craft pixel-perfect, accessible, and responsive interfaces that delight users. Leveraging the
+                        latest in React Server Components and Edge rendering.
+                    </p>
+                    <a href="../contact.html"
+                        class="inline-block px-8 py-4 text-lg font-bold text-white bg-pink-600 rounded-full hover:bg-pink-500 hover:shadow-[0_0_20px_rgba(219,39,119,0.4)] transition transform hover:-translate-y-1">
+                        Build With Us
+                    </a>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="absolute inset-0 bg-pink-600 blur-3xl opacity-20 animate-pulse"></div>
+                    <img src="../public/frontend-illustration.png" alt="Frontend Development"
+                        class="relative z-10 w-full hover:scale-105 transition duration-500 drop-shadow-2xl">
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4 text-pink-400">Modern Stacks</h3>
+                    <p class="text-gray-300">Expertise in Next.js, Vue 3, and Astro. We choose the right tool for the
+                        job to ensure optimal bundle sizes and SEO performance.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4 text-pink-400">Interactive Design</h3>
+                    <p class="text-gray-300">Using Framer Motion and GSAP, we breathe life into static pages with smooth
+                        transitions and micro-interactions that keep users engaged.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="p-8 text-center border-t border-gray-800/50 text-gray-400">
+            <p>&copy; 2025 MakeBig. Crafting the Future of Web.</p>
+        </footer>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="hidden fixed inset-0 z-50 bg-gray-900 bg-opacity-95 backdrop-blur-lg flex flex-col items-center justify-center space-y-8 transition-all duration-300 opacity-0 transform scale-95 pointer-events-none">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-purple-400 focus:outline-none">
+            <span class="material-icons text-4xl">close</span>
+        </button>
+        <a href="../index.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Home</a>
+        <a href="../services.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Services</a>
+        <a href="../contact.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Contact</a>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                }, 10);
+            } else {
+                mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="services/shopify.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Shopify Solutions - MakeBig</title>
+    <meta name="description"
+        content="Expert Shopify development, custom app creation, and automated workflow integration for high-growth e-commerce brands." />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <!-- Background -->
+    <div class="fixed inset-0 z-0">
+        <img src="../public/hero-bg.png" alt="Background" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-transparent to-gray-900"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        <!-- Header -->
+        <header class="flex justify-between items-center p-6 md:px-12 backdrop-blur-sm border-b border-gray-800/50">
+            <div class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                MakeBig</div>
+            <nav class="space-x-6 hidden md:block">
+                <a href="../index.html" class="text-gray-300 hover:text-white transition">Home</a>
+                <a href="../services.html" class="text-white font-semibold">Services</a>
+                <a href="../contact.html"
+                    class="px-4 py-2 text-sm font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition">Contact</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <span class="material-icons text-3xl">menu</span>
+            </button>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow p-6 md:p-12 max-w-7xl mx-auto w-full">
+            <div class="flex flex-col md:flex-row gap-12 items-center mb-16">
+                <div class="md:w-1/2">
+                    <div
+                        class="inline-block px-4 py-1 mb-4 text-sm font-semibold text-green-400 bg-green-400/10 rounded-full border border-green-400/20">
+                        E-Commerce Experts
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                        Scale Your <br />
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">Shopify
+                            Store</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 leading-relaxed mb-8">
+                        We don't just build stores; we engineer high-performance e-commerce ecosystems using custom
+                        apps, headless architecture, and flow automation.
+                    </p>
+                    <a href="../contact.html"
+                        class="inline-block px-8 py-4 text-lg font-bold text-gray-900 bg-green-400 rounded-full hover:bg-green-300 hover:shadow-[0_0_20px_rgba(74,222,128,0.4)] transition transform hover:-translate-y-1">
+                        Start Your Project
+                    </a>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="absolute inset-0 bg-green-500 blur-3xl opacity-20 animate-pulse"></div>
+                    <img src="../public/shopify-illustration.png" alt="Shopify Development"
+                        class="relative z-10 w-full hover:scale-105 transition duration-500 drop-shadow-2xl">
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300 group">
+                    <span
+                        class="material-icons text-4xl text-green-400 mb-4 group-hover:scale-110 transition">storefront</span>
+                    <h3 class="text-2xl font-bold mb-4">Store Setup & Migration</h3>
+                    <p class="text-gray-400 mb-6">Seamless migration from WooCommerce or Magento. Premium theme
+                        categorization and performance tuning for 90+ Lighthouse scores.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300 group">
+                    <span
+                        class="material-icons text-4xl text-green-400 mb-4 group-hover:scale-110 transition">extension</span>
+                    <h3 class="text-2xl font-bold mb-4">Custom App Development</h3>
+                    <p class="text-gray-400 mb-6">Built with Remix and Polaris. We create private apps to solve unique
+                        business challenges that off-the-shelf plugins can't handle.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300 group">
+                    <span
+                        class="material-icons text-4xl text-green-400 mb-4 group-hover:scale-110 transition">account_tree</span>
+                    <h3 class="text-2xl font-bold mb-4">Shopify Flow Automation</h3>
+                    <p class="text-gray-400 mb-6">Automate inventory tagging, fraud detection, and customer segmentation
+                        to save hundreds of manual hours every month.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="p-8 text-center border-t border-gray-800/50 text-gray-400">
+            <p>&copy; 2025 MakeBig. Expert Shopify Partners.</p>
+        </footer>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="hidden fixed inset-0 z-50 bg-gray-900 bg-opacity-95 backdrop-blur-lg flex flex-col items-center justify-center space-y-8 transition-all duration-300 opacity-0 transform scale-95 pointer-events-none">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-purple-400 focus:outline-none">
+            <span class="material-icons text-4xl">close</span>
+        </button>
+        <a href="../index.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Home</a>
+        <a href="../services.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Services</a>
+        <a href="../contact.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Contact</a>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                }, 10);
+            } else {
+                mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="package.json">
+{
+    "dependencies": {
+        "resend": "^2.0.0"
+    },
+    "name": "makebig",
+    "version": "1.0.0",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/comeonkillthecode/MakeBig.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/comeonkillthecode/MakeBig/issues"
+    },
+    "homepage": "https://github.com/comeonkillthecode/MakeBig#readme",
+    "description": ""
+}
+</file>
+
+<file path="contact.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact Us - MakeBig</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <div class="fixed inset-0 z-0">
+        <img src="public/hero-bg.png" alt="Background" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-transparent to-gray-900"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        <header class="flex justify-between items-center p-6 md:px-12 backdrop-blur-sm border-b border-gray-800/50">
+            <div class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                MakeBig</div>
+            <nav class="space-x-6 hidden md:block">
+                <a href="index.html" class="text-gray-300 hover:text-white transition">Home</a>
+                <a href="services.html" class="text-gray-300 hover:text-white transition">Services</a>
+                <a href="contact.html"
+                    class="px-4 py-2 text-sm font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition">Contact</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <span class="material-icons text-3xl">menu</span>
+            </button>
+        </header>
+
+        <main class="flex-grow p-6 md:p-12 max-w-6xl mx-auto w-full flex flex-col md:flex-row gap-12 items-start">
+            <div class="md:w-1/2">
+                <h1
+                    class="text-4xl md:text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">
+                    Let's Build Something Amazing</h1>
+                <p class="text-xl text-gray-300 mb-12">
+                    Ready to transform your business? Reach out to us for a consultation, quote, or just to say hello.
+                </p>
+
+                <div class="space-y-6">
+                    <div class="glass-card p-6 rounded-xl flex items-center gap-4">
+                        <span class="material-icons text-purple-400 text-3xl">email</span>
+                        <div>
+                            <div class="text-sm text-gray-400">Email Us</div>
+                            <div class="text-lg font-semibold">makebigweb@gmail.com</div>
+                            <div class="text-lg font-semibold">booraakash@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl flex items-center gap-4">
+                        <span class="material-icons text-purple-400 text-3xl">phone</span>
+                        <div>
+                            <div class="text-sm text-gray-400">Call Us</div>
+                            <div class="text-lg font-semibold">+91 8367406492</div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl flex items-center gap-4">
+                        <span class="fab fa-whatsapp text-purple-400 text-3xl"></span>
+                        <div>
+                            <div class="text-sm text-gray-400">WhatsApp</div>
+                            <a href="https://wa.me/918367406492?text=Hi%2C%20I%20am%20looking%20for%20web%20services."
+                                target="_blank" class="text-lg font-semibold hover:text-purple-400 transition">Chat with
+                                us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:w-1/2 w-full">
+                <div class="glass-card p-8 rounded-2xl">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-2">Your Name</label>
+                            <input type="text" name="name"
+                                class="w-full bg-gray-800/50 border border-gray-700 rounded-lg p-4 text-white focus:outline-none focus:border-purple-500 transition"
+                                placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-2">Your Email</label>
+                            <input type="email" name="email"
+                                class="w-full bg-gray-800/50 border border-gray-700 rounded-lg p-4 text-white focus:outline-none focus:border-purple-500 transition"
+                                placeholder="john@example.com" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-2">Message</label>
+                            <textarea name="message" rows="4"
+                                class="w-full bg-gray-800/50 border border-gray-700 rounded-lg p-4 text-white focus:outline-none focus:border-purple-500 transition"
+                                placeholder="Tell us about your project..." required></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full py-4 text-lg font-bold text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg hover:shadow-lg hover:scale-[1.02] transition transform duration-200">
+                            Send Message
+                        </button>
+                    </form>
+                    <p id="form-message" class="text-center mt-4 text-gray-300"></p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="p-8 text-center border-t border-gray-800/50 text-gray-400">
+            <p>&copy; 2025 MakeBig. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                message: formData.get('message')
+            };
+            const messageEl = document.getElementById('form-message');
+            messageEl.textContent = 'Sending...';
+
+            try {
+                const response = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    messageEl.textContent = 'Message sent successfully!';
+                    form.reset();
+                } else {
+                    messageEl.textContent = 'Error: ' + result.error;
+                }
+            } catch (error) {
+                messageEl.textContent = 'Error: Failed to send message.';
+            }
+        });
+    </script>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="hidden fixed inset-0 z-50 bg-gray-900 bg-opacity-95 backdrop-blur-lg flex flex-col items-center justify-center space-y-8 transition-all duration-300 opacity-0 transform scale-95 pointer-events-none">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-purple-400 focus:outline-none">
+            <span class="material-icons text-4xl">close</span>
+        </button>
+        <a href="index.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Home</a>
+        <a href="services.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Services</a>
+        <a href="contact.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Contact</a>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                }, 10);
+            } else {
+                mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="index.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>MakeBig - Web & Tech Solutions | Professional Web Development Services</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="MakeBig offers professional web development, app development, and tech consulting services. Transform your business with our cutting-edge digital solutions." />
+    <meta name="keywords"
+        content="web development, app development, tech consulting, frontend development, backend development, cloud integration, API development" />
+    <meta name="author" content="MakeBig" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://makebig.com/" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="MakeBig - Web & Tech Solutions" />
+    <meta property="og:description"
+        content="Transform your business with our cutting-edge web development and tech solutions." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://makebig.com/" />
+    <meta property="og:image" content="https://makebig.com/assets/og-image.jpg" />
+    <meta property="og:site_name" content="MakeBig" />
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(31, 41, 55, 0.7);
+            border-color: rgba(168, 85, 247, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .animate-slide-in {
+            animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .whatsapp-bubble {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <!-- Fixed Background -->
+    <div class="fixed inset-0 z-0">
+        <img src="public/hero-bg.png" alt="Background" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-transparent to-gray-900"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        <!-- Header -->
+        <header
+            class="flex justify-between items-center p-6 md:px-12 backdrop-blur-md border-b border-gray-800/50 sticky top-0 z-50">
+            <div class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                MakeBig</div>
+            <nav class="space-x-6 hidden md:block">
+                <a href="index.html" class="text-white font-semibold">Home</a>
+                <a href="services.html" class="text-gray-300 hover:text-white transition">Services</a>
+                <a href="contact.html"
+                    class="px-4 py-2 text-sm font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition">Contact</a>
+            </nav>
+            <!-- Mobile Menu Icon -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <span class="material-icons text-3xl">menu</span>
+            </button>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow">
+            <!-- Hero Section -->
+            <section
+                class="min-h-[80vh] flex flex-col items-center justify-center text-center p-6 md:p-12 animate-slide-in">
+                <div
+                    class="inline-block px-6 py-2 mb-6 text-sm font-semibold text-purple-300 bg-purple-500/10 rounded-full border border-purple-500/20 backdrop-blur-sm">
+                    🚀 Elevate Your Digital Presence
+                </div>
+                <h1 class="text-5xl md:text-8xl font-extrabold mb-8 leading-tight tracking-tight">
+                    Enterprise-Grade <br />
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">Digital
+                        Solutions</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                    We architect scalable web applications, high-performance Shopify stores, and cloud infrastructure
+                    that drives measurable business growth.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-6">
+                    <a href="services.html"
+                        class="inline-block px-10 py-4 text-lg font-bold text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded-full hover:shadow-[0_0_30px_rgba(236,72,153,0.4)] hover:scale-105 transition transform duration-300">
+                        Explore Our Services
+                    </a>
+                    <a href="contact.html"
+                        class="inline-block px-10 py-4 text-lg font-bold text-gray-300 border border-gray-600 rounded-full hover:border-white hover:text-white hover:bg-white/5 backdrop-blur-sm transition duration-300">
+                        Discuss Your Project
+                    </a>
+                </div>
+            </section>
+
+            <!-- Services Preview Section -->
+            <section class="p-6 md:p-24 max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Core Competencies</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto text-lg">We bring together top-tier engineering and
+                        creative design to solve complex challenges.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Shopify Card -->
+                    <div class="glass-card p-8 rounded-2xl group relative overflow-hidden">
+                        <div
+                            class="absolute -right-10 -top-10 w-40 h-40 opacity-10 group-hover:opacity-20 transition duration-500">
+                            <img src="public/shopify-illustration.png" alt="Shopify Illustration"
+                                class="w-full h-full object-contain">
+                        </div>
+                        <div
+                            class="w-14 h-14 bg-gray-700/50 rounded-xl mb-6 flex items-center justify-center group-hover:bg-purple-600/20 group-hover:text-purple-400 transition duration-300">
+                            <span class="fab fa-shopify text-3xl text-white group-hover:text-purple-400"></span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Shopify Solutions</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6">Custom themes, private apps, and Flow automation
+                            for high-volume e-commerce brands.</p>
+                        <a href="services/shopify.html"
+                            class="text-purple-400 font-semibold flex items-center group-hover:translate-x-2 transition duration-300">Learn
+                            more <span class="material-icons text-sm ml-2">arrow_forward</span></a>
+                    </div>
+
+                    <!-- Frontend Card -->
+                    <div class="glass-card p-8 rounded-2xl group relative overflow-hidden">
+                        <div
+                            class="absolute -right-10 -top-10 w-40 h-40 opacity-10 group-hover:opacity-20 transition duration-500">
+                            <img src="public/frontend-illustration.png" alt="Frontend Illustration"
+                                class="w-full h-full object-contain">
+                        </div>
+                        <div
+                            class="w-14 h-14 bg-gray-700/50 rounded-xl mb-6 flex items-center justify-center group-hover:bg-pink-600/20 group-hover:text-pink-400 transition duration-300">
+                            <span class="material-icons text-3xl text-white group-hover:text-pink-400">layers</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Full-Stack Development</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4">Scalable React/Node.js applications built with
+                            modern architecture and best practices.</p>
+                        <a href="services/frontend.html"
+                            class="text-pink-400 font-semibold flex items-center group-hover:translate-x-2 transition duration-300">Learn
+                            more <span class="material-icons text-sm ml-2">arrow_forward</span></a>
+                    </div>
+
+                    <!-- Backend Card -->
+                    <div class="glass-card p-8 rounded-2xl group relative overflow-hidden">
+                        <div
+                            class="absolute -right-10 -top-10 w-40 h-40 opacity-10 group-hover:opacity-20 transition duration-500">
+                            <img src="public/backend-illustration.png" alt="Backend Illustration"
+                                class="w-full h-full object-contain mb-4">
+                        </div>
+                        <div
+                            class="w-14 h-14 bg-gray-700/50 rounded-xl mb-6 flex items-center justify-center group-hover:bg-blue-600/20 group-hover:text-blue-400 transition duration-300">
+                            <span
+                                class="material-icons text-3xl text-white group-hover:text-blue-400">rocket_launch</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Performance & API</h3>
+                        <p class="text-gray-400 leading-relaxed mb-4">API integration and speed optimization to ensure
+                            your digital products load instantly.</p>
+                        <a href="services/backend.html"
+                            class="text-blue-400 font-semibold flex items-center group-hover:translate-x-2 transition duration-300">Learn
+                            more <span class="material-icons text-sm ml-2">arrow_forward</span></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About / Manifesto Section -->
+            <section class="p-6 md:p-24 text-center relative z-10">
+                <div class="max-w-4xl mx-auto glass-card p-12 rounded-3xl">
+                    <h2 class="text-3xl font-bold mb-6">Why MakeBig?</h2>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        We don't just write code; we solve business problems. Our team specializes in delivering
+                        cutting-edge web and tech solutions tailored to your unique requirements. Innovation is in our
+                        DNA.
+                    </p>
+                    <a href="contact.html"
+                        class="inline-block px-8 py-3 text-lg font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition shadow-lg">Start
+                        a Conversation</a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="p-8 text-center border-t border-gray-800/50 text-gray-400 backdrop-blur-sm">
+            <div
+                class="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 inline-block">
+                MakeBig</div>
+            <p>&copy; 2025 MakeBig. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- WhatsApp Bubble -->
+    <a href="https://wa.me/918367406492?text=Hi%2C%20I%20am%20looking%20for%20web%20services." target="_blank"
+        class="whatsapp-bubble">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="hidden fixed inset-0 z-50 bg-gray-900 bg-opacity-95 backdrop-blur-lg flex flex-col items-center justify-center space-y-8 transition-all duration-300 opacity-0 transform scale-95 pointer-events-none">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-purple-400 focus:outline-none">
+            <span class="material-icons text-4xl">close</span>
+        </button>
+        <a href="index.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Home</a>
+        <a href="services.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Services</a>
+        <a href="contact.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Contact</a>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                // Small delay to allow display:block to apply before opacity transition
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                }, 10);
+            } else {
+                mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="portfolio.html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>MakeBig - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-overlay {
+            background: linear-gradient(to bottom right, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+        }
+        .card-gradient {
+            background: linear-gradient(to right, #4A00E0, #8E2DE2);
+        }
+        .highlight-box {
+            background: linear-gradient(to right, #FF69B4, #FFB6C1);
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .animate-slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col p-4">
+    <div class="w-full max-w-6xl mx-auto bg-gray-800 shadow-2xl rounded-2xl overflow-hidden relative">
+        <div class="absolute top-0 left-0 w-full h-full opacity-30">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-purple-600 rounded-full mix-blend-screen filter blur-xl opacity-50 animate-pulse"></div>
+            <div class="absolute bottom-20 right-20 w-40 h-40 bg-pink-500 rounded-full mix-blend-screen filter blur-xl opacity-50 animate-pulse animation-delay-2000"></div>
+        </div>
+        <div class="relative z-10">
+            <!-- Header -->
+            <header class="flex justify-between items-center p-6">
+                <div class="text-2xl font-bold">MakeBig</div>
+                <nav class="space-x-4">
+                    <a href="index.html" class="text-gray-300 hover:text-white">Home</a>
+                    <a href="services.html" class="text-gray-300 hover:text-white">Services</a>
+                    <a href="portfolio.html" class="text-white font-semibold">Portfolio</a>
+                    <a href="contact.html" class="text-gray-300 hover:text-white">Contact</a>
+                </nav>
+            </header>
+            <!-- Hero Section -->
+            <section class="p-6 md:p-12 text-center animate-slide-in">
+                <h1 class="text-4xl font-bold mb-4">Our Portfolio</h1>
+                <p class="text-gray-300">Explore some of the projects we've successfully delivered for our clients.</p>
+            </section>
+            <!-- Portfolio Grid -->
+            <section class="p-6 md:p-12">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="project-card">
+                        <img src="/assets/digital-marketing.png" alt="Project 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h2 class="text-2xl font-semibold mb-2">E-commerce Platform</h2>
+                        <p class="text-gray-300">Developed a fully functional e-commerce website with secure payment integration and user-friendly interface.</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="/assets/ecommerce.png" alt="Project 2" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h2 class="text-2xl font-semibold mb-2">Social Media App</h2>
+                        <p class="text-gray-300">Created a social media platform with real-time messaging and content sharing features.</p>
+                    </div>
+                </div>
+            </section>
+            <!-- Call to Action -->
+            <section class="p-6 md:p-12 text-center">
+                <a href="contact.html" class="inline-block px-6 py-3 text-lg font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition">Start Your Project</a>
+            </section>
+            <!-- Footer -->
+            <footer class="p-6 text-center">
+                <div class="text-2xl font-bold mb-2">MakeBig</div>
+                <p class="text-gray-400">© 2025 MakeBig. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
+</file>
+
+<file path="services.html">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Our Services - MakeBig</title>
+    <meta name="description"
+        content="Explore MakeBig's comprehensive web services including frontend & backend development, cloud integration, API development, and tech consulting solutions." />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <div class="fixed inset-0 z-0">
+        <img src="public/hero-bg.png" alt="Background" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-transparent to-gray-900"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        <header class="flex justify-between items-center p-6 md:px-12 backdrop-blur-sm border-b border-gray-800/50">
+            <div class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                MakeBig</div>
+            <nav class="space-x-6 hidden md:block">
+                <a href="index.html" class="text-gray-300 hover:text-white transition">Home</a>
+                <a href="services.html" class="text-white font-semibold">Services</a>
+                <a href="contact.html"
+                    class="px-4 py-2 text-sm font-semibold text-white bg-purple-600 rounded-full hover:bg-purple-700 transition">Contact</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <span class="material-icons text-3xl">menu</span>
+            </button>
+        </header>
+
+        <main class="flex-grow p-6 md:p-12 max-w-7xl mx-auto w-full">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6">Expertise & Capabilities</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">We deliver end-to-end digital solutions, from initial
+                    strategy to deployment and scaling.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Shopify -->
+                <div
+                    class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300 group relative overflow-hidden">
+                    <div
+                        class="absolute -right-10 -top-10 w-40 h-40 opacity-10 group-hover:opacity-20 transition duration-500">
+                        <img src="public/shopify-illustration.png" alt="Shopify" class="w-full h-full object-contain">
+                    </div>
+                    <div class="relative z-10">
+                        <span class="fab fa-shopify text-4xl text-green-400 mb-4 inline-block"></span>
+                        <h2 class="text-2xl font-bold mb-3">Shopify Ecosystem</h2>
+                        <p class="text-gray-400 mb-6">Custom themes, private apps, and automation workflows for serious
+                            e-commerce.</p>
+                        <a href="services/shopify.html"
+                            class="text-green-400 font-semibold group-hover:underline">Explore
+                            Shopify Services
+                            &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Frontend -->
+                <div
+                    class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300 group relative overflow-hidden">
+                    <div
+                        class="absolute -right-10 -top-10 w-40 h-40 opacity-10 group-hover:opacity-20 transition duration-500">
+                        <img src="public/frontend-illustration.png" alt="Frontend" class="w-full h-full object-contain">
+                    </div>
+                    <div class="relative z-10">
+                        <span class="material-icons text-4xl text-pink-400 mb-4 inline-block">code</span>
+                        <h2 class="text-2xl font-bold mb-3">Frontend Architecture</h2>
+                        <p class="text-gray-400 mb-6">High-performance React/Vue.js applications with pixel-perfect
+                            design.</p>
+                        <a href="services/frontend.html"
+                            class="text-pink-400 font-semibold group-hover:underline">Explore
+                            Frontend &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div
+                    class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300 group relative overflow-hidden">
+                    <div
+                        class="absolute -right-10 -top-10 w-40 h-40 opacity-10 group-hover:opacity-20 transition duration-500">
+                        <img src="public/backend-illustration.png" alt="Backend" class="w-full h-full object-contain">
+                    </div>
+                    <div class="relative z-10">
+                        <span class="material-icons text-4xl text-blue-400 mb-4 inline-block">dns</span>
+                        <h2 class="text-2xl font-bold mb-3">Backend & Cloud</h2>
+                        <p class="text-gray-400 mb-6">Scalable APIs, database design, and secure cloud infrastructure on
+                            AWS.</p>
+                        <a href="services/backend.html"
+                            class="text-blue-400 font-semibold group-hover:underline">Explore Backend
+                            &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Consulting -->
+                <div
+                    class="glass-card p-8 rounded-2xl hover:bg-gray-800/50 transition duration-300 group relative overflow-hidden">
+                    <div
+                        class="absolute -right-10 -top-10 w-40 h-40 opacity-10 group-hover:opacity-20 transition duration-500">
+                        <img src="public/consulting-illustration.png" alt="Consulting"
+                            class="w-full h-full object-contain">
+                    </div>
+                    <div class="relative z-10">
+                        <span class="material-icons text-4xl text-yellow-400 mb-4 inline-block">lightbulb</span>
+                        <h2 class="text-2xl font-bold mb-3">Tech Consulting</h2>
+                        <p class="text-gray-400 mb-6">Strategic advice, digital transformation, and CTO-as-a-service.
+                        </p>
+                        <a href="services/consulting.html"
+                            class="text-yellow-400 font-semibold group-hover:underline">Explore
+                            Consulting &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="p-8 text-center border-t border-gray-800/50 text-gray-400">
+            <p>&copy; 2025 MakeBig. All rights reserved.</p>
+        </footer>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="hidden fixed inset-0 z-50 bg-gray-900 bg-opacity-95 backdrop-blur-lg flex flex-col items-center justify-center space-y-8 transition-all duration-300 opacity-0 transform scale-95 pointer-events-none">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-purple-400 focus:outline-none">
+            <span class="material-icons text-4xl">close</span>
+        </button>
+        <a href="index.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Home</a>
+        <a href="services.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Services</a>
+        <a href="contact.html"
+            class="text-2xl font-semibold text-white hover:text-purple-400 hover:scale-105 transition transform">Contact</a>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                }, 10);
+            } else {
+                mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+    </script>
+</body>
+
+</html>
+</file>
+
+<file path="vercel.json">
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/api/send-email",
+      "destination": "/api/send-email.js"
+    }
+  ]
+}
+</file>
+
+</files>
