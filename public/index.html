@@ -63,29 +63,6 @@
                 transform: translateY(0);
             }
         }
-
-        .whatsapp-bubble {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .whatsapp-bubble:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
-        }
     </style>
 </head>
 
@@ -238,11 +215,7 @@
         </footer>
     </div>
 
-    <!-- WhatsApp Bubble -->
-    <a href="https://wa.me/918367406492?text=Hi%2C%20I%20am%20looking%20for%20web%20services." target="_blank"
-        class="whatsapp-bubble">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
         class="hidden fixed inset-0 z-50 bg-gray-900 bg-opacity-95 backdrop-blur-lg flex flex-col items-center justify-center space-y-8 transition-all duration-300 opacity-0 transform scale-95 pointer-events-none">
@@ -281,6 +254,7 @@
         menuBtn.addEventListener('click', toggleMenu);
         closeBtn.addEventListener('click', toggleMenu);
     </script>
+    <script src="/whatsapp-widget.js"></script>
 </body>
 
 </html>
