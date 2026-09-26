@@ -179,9 +179,25 @@ ul, ol {
 }
 
 .nav-logo {
+    display: inline-flex;
+    align-items: center;
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.02em;
+    text-decoration: none;
+}
+
+.nav-logo-img {
+    height: 38px;
+    width: auto;
+    max-width: 190px;
+    display: block;
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+.nav-logo:hover .nav-logo-img {
+    transform: scale(1.02);
+    opacity: 0.95;
 }
 
 .nav-logo span {
@@ -550,7 +566,16 @@ ul, ol {
 .footer-brand {
     font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.footer-logo-img {
+    height: 40px;
+    width: auto;
+    max-width: 195px;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .footer-brand span {
