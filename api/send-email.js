@@ -38,7 +38,7 @@ module.exports = async (req, res) => {
     try {
         await resend.emails.send({
             from: 'onboarding@resend.dev',
-            to: 'akashboora143@gmail.com',
+            to: 'akash@makebig.in',
             subject: `New Contact Form Submission from ${name}`,
             text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
         });

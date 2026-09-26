@@ -36,7 +36,7 @@
 
     // Add Bubble
     const bubble = document.createElement('a');
-    bubble.href = 'https://wa.me/918467406492?text=Hi%2C%20I%20am%20looking%20for%20web%20services.';
+    bubble.href = 'https://wa.me/919392206492?text=Hi%2C%20I%20am%20looking%20for%20web%20services.';
     bubble.target = '_blank';
     bubble.className = 'whatsapp-bubble';
     bubble.innerHTML = '<i class="fab fa-whatsapp" style="font-size: 32px;"></i>';
