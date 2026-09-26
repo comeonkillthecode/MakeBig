@@ -1,53 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>MakeBig — Full-Service Web Solutions Partner</title>
-
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="MakeBig delivers high-performance websites, eCommerce stores, and custom software solutions that drive real business growth. Your full-service web solutions partner." />
-    <meta name="keywords"
-        content="web development, eCommerce, Shopify, custom software, UI UX design, API integration, web solutions" />
-    <meta name="author" content="MakeBig Web Solutions" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://makebig.in/" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="MakeBig — Full-Service Web Solutions Partner" />
-    <meta property="og:description"
-        content="We build high-performance websites, eCommerce stores, and custom software that drives real business growth." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://makebig.in/" />
-    <meta property="og:site_name" content="MakeBig" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MakeBig Digital Solutions — Helping Companies Make It Big</title>
+    <meta name="description" content="MakeBig Digital Solutions — Full-service web development, Shopify, integrations, and consulting. 5+ years of expertise helping companies scale their digital presence.">
+    <meta name="keywords" content="web development, Shopify, ecommerce, frontend, backend, API integrations, tech consulting, MakeBig">
+    <link rel="canonical" href="https://makebig.in/">
+    <meta property="og:title" content="MakeBig Digital Solutions — Helping Companies Make It Big">
+    <meta property="og:description" content="Full-service web development, Shopify, integrations, and consulting. 5+ years of expertise.">
+    <meta property="og:url" content="https://makebig.in/">
+    <meta property="og:type" content="website">
 
     <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles.css">
 </head>
-
 <body>
-    <!-- ========== NAVIGATION ========== -->
+
+    <!-- ===== Navbar ===== -->
     <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="/" class="navbar-logo">
-                <img src="/assets/logo.png" alt="MakeBig Web Solutions" />
-            </a>
-            <div class="navbar-links">
-                <a href="/" class="active">Home</a>
-                <a href="/services">Services</a>
-                <a href="/contact">About Us</a>
-                <a href="/contact" class="btn-cta">Get in Touch</a>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Make<span>Big</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/services" class="nav-link">Services</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/contact" class="nav-link">Contact</a>
             </div>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -55,284 +41,174 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="/">Home</a>
-        <a href="/services">Services</a>
-        <a href="/contact">About Us</a>
-        <a href="/contact" class="btn-cta" style="margin-top: 16px;">Get in Touch</a>
-    </div>
-
-    <!-- ========== HERO ========== -->
-    <section class="hero" id="hero">
-        <div class="hero-bg"></div>
-        <!-- Floating geometric shapes -->
-        <svg class="hero-shapes" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"
-            aria-hidden="true">
-            <circle cx="15%" cy="25%" r="120" fill="none" stroke="rgba(242,140,40,0.06)" stroke-width="1">
-                <animateTransform attributeName="transform" type="rotate" from="0 15 25" to="360 15 25" dur="60s"
-                    repeatCount="indefinite" />
-            </circle>
-            <circle cx="80%" cy="60%" r="80" fill="none" stroke="rgba(242,140,40,0.04)" stroke-width="1">
-                <animateTransform attributeName="transform" type="rotate" from="360 80 60" to="0 80 60" dur="45s"
-                    repeatCount="indefinite" />
-            </circle>
-            <rect x="70%" y="15%" width="60" height="60" rx="8" fill="none" stroke="rgba(255,255,255,0.03)"
-                stroke-width="1" transform="rotate(35 73 18)">
-                <animateTransform attributeName="transform" type="rotate" from="35 73 18" to="395 73 18" dur="50s"
-                    repeatCount="indefinite" />
-            </rect>
-            <polygon points="10,85 25,75 25,95" fill="none" stroke="rgba(242,140,40,0.04)" stroke-width="1">
-                <animateTransform attributeName="transform" type="translate" values="0,0;20,-10;0,0" dur="20s"
-                    repeatCount="indefinite" />
-            </polygon>
-        </svg>
-
+    <!-- ===== Hero ===== -->
+    <section class="hero">
         <div class="hero-content">
-            <span class="hero-label">MakeBig Web Solutions</span>
-            <h1>Your Full-Service<br /><span class="highlight">Web Solutions Partner</span></h1>
-            <p>We build high-performance websites, eCommerce stores, and custom software that drives real business
-                growth.</p>
-            <div class="hero-actions">
-                <a href="/services" class="btn-cta">Explore Our Services →</a>
-                <a href="/contact" class="btn-outline">Let's Talk</a>
+            <span class="hero-label">MakeBig Digital Solutions</span>
+            <h1 class="hero-title">Helping Companies<br>Make It <span class="highlight">Big</span></h1>
+            <p class="hero-subtitle">End-to-end web development — from pixel-perfect frontends to robust backends, Shopify stores to custom integrations. Built on 5+ years of real-world expertise.</p>
+            <div class="hero-buttons">
+                <a href="/contact" class="btn btn-primary">Get in Touch <i class="fas fa-arrow-right"></i></a>
+                <a href="/services" class="btn btn-secondary">Our Services</a>
             </div>
-        </div>
-
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="line"></div>
         </div>
     </section>
 
-    <!-- ========== SERVICES — Numbered List ========== -->
-    <section class="services-section" id="services">
+    <!-- ===== Services ===== -->
+    <section class="section" id="services">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">What We Do</span>
-                <h2>Services</h2>
+                <h2 class="section-title">Services</h2>
+                <p class="section-subtitle">Full-stack expertise across the modern web — from concept to deployment and beyond.</p>
             </div>
-
-            <div class="services-list stagger-children">
-                <a href="/services#web-dev" class="service-item reveal" style="--i:0">
-                    <span class="service-number">01</span>
-                    <span class="service-title">Website Development</span>
-                    <span class="service-arrow">→</span>
-                </a>
-                <a href="/services#ecommerce" class="service-item reveal" style="--i:1">
-                    <span class="service-number">02</span>
-                    <span class="service-title">eCommerce Solutions</span>
-                    <span class="service-arrow">→</span>
-                </a>
-                <a href="/services#uiux" class="service-item reveal" style="--i:2">
-                    <span class="service-number">03</span>
-                    <span class="service-title">UI/UX Design</span>
-                    <span class="service-arrow">→</span>
-                </a>
-                <a href="/services#custom-software" class="service-item reveal" style="--i:3">
-                    <span class="service-number">04</span>
-                    <span class="service-title">Custom Software Development</span>
-                    <span class="service-arrow">→</span>
-                </a>
-                <a href="/services#api" class="service-item reveal" style="--i:4">
-                    <span class="service-number">05</span>
-                    <span class="service-title">API & Integration</span>
-                    <span class="service-arrow">→</span>
-                </a>
-                <a href="/services#support" class="service-item reveal" style="--i:5">
-                    <span class="service-number">06</span>
-                    <span class="service-title">Support & Maintenance</span>
-                    <span class="service-arrow">→</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== ABOUT SECTION ========== -->
-    <section class="about-section" id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image reveal">
-                    <!-- Placeholder: geometric graphic when no image is provided -->
-                    <svg width="100%" height="100%" viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        style="background: linear-gradient(135deg, #16161E 0%, #1e1e2e 100%);">
-                        <!-- Abstract tech graphic -->
-                        <circle cx="300" cy="225" r="120" stroke="#F28C28" stroke-width="0.5" opacity="0.3" />
-                        <circle cx="300" cy="225" r="80" stroke="#F28C28" stroke-width="0.5" opacity="0.2" />
-                        <circle cx="300" cy="225" r="160" stroke="#F28C28" stroke-width="0.5" opacity="0.15" />
-                        <line x1="140" y1="225" x2="460" y2="225" stroke="#F28C28" stroke-width="0.5" opacity="0.2" />
-                        <line x1="300" y1="65" x2="300" y2="385" stroke="#F28C28" stroke-width="0.5" opacity="0.2" />
-                        <!-- Dots at intersections -->
-                        <circle cx="300" cy="225" r="4" fill="#F28C28" opacity="0.8" />
-                        <circle cx="300" cy="105" r="3" fill="#F28C28" opacity="0.5" />
-                        <circle cx="300" cy="345" r="3" fill="#F28C28" opacity="0.5" />
-                        <circle cx="180" cy="225" r="3" fill="#F28C28" opacity="0.5" />
-                        <circle cx="420" cy="225" r="3" fill="#F28C28" opacity="0.5" />
-                        <!-- Label text -->
-                        <text x="300" y="220" text-anchor="middle" fill="#F28C28" font-family="Inter" font-size="14"
-                            opacity="0.6">We Bring Ideas</text>
-                        <text x="300" y="240" text-anchor="middle" fill="#F28C28" font-family="Inter" font-size="14"
-                            opacity="0.6">to Life</text>
-                    </svg>
-                </div>
-                <div class="about-content reveal">
-                    <span class="section-label">About Us</span>
-                    <h2>We Bring Ideas to Life</h2>
-                    <p>At MakeBig, we don't just build websites — we craft digital experiences that drive results. Our
-                        team combines creative design with robust engineering to deliver solutions that scale with your
-                        business.</p>
-                    <p>From startups to established brands, we partner with businesses to transform their digital
-                        presence using the latest technologies and industry best practices.</p>
-
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Projects Delivered</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">98%</span>
-                            <span class="stat-label">Client Satisfaction</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">24/7</span>
-                            <span class="stat-label">Ongoing Support</span>
-                        </div>
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <a href="/services/frontend" class="card reveal reveal-delay-1">
+                    <div class="card-content">
+                        <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3 class="card-title">Frontend Development</h3>
+                        <p class="card-description">Modern, responsive interfaces built with React, Next.js, and Vue.js that users love.</p>
+                        <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
                     </div>
-                </div>
+                </a>
+                <!-- Card 2 -->
+                <a href="/services/backend" class="card reveal reveal-delay-2">
+                    <div class="card-content">
+                        <div class="card-icon"><i class="fas fa-server"></i></div>
+                        <h3 class="card-title">Backend &amp; APIs</h3>
+                        <p class="card-description">Scalable server-side solutions with Node.js, Java Spring, and cloud infrastructure.</p>
+                        <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <!-- Card 3 -->
+                <a href="/services/shopify" class="card reveal reveal-delay-3">
+                    <div class="card-content">
+                        <div class="card-icon"><i class="fab fa-shopify"></i></div>
+                        <h3 class="card-title">Shopify &amp; eCommerce</h3>
+                        <p class="card-description">Complete online store solutions — from setup and custom themes to app development.</p>
+                        <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <!-- Card 4 -->
+                <a href="/services/integrations" class="card reveal reveal-delay-4">
+                    <div class="card-content">
+                        <div class="card-icon"><i class="fas fa-plug"></i></div>
+                        <h3 class="card-title">Integrations &amp; Automation</h3>
+                        <p class="card-description">Connect your tools, automate workflows, and build custom API integrations that save time.</p>
+                        <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <!-- Card 5 -->
+                <a href="/services/testing" class="card reveal reveal-delay-5">
+                    <div class="card-content">
+                        <div class="card-icon"><i class="fas fa-vial"></i></div>
+                        <h3 class="card-title">Testing &amp; QA</h3>
+                        <p class="card-description">Comprehensive quality assurance — automation, UI, API, and integration testing.</p>
+                        <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <!-- Card 6 -->
+                <a href="/services/consulting" class="card reveal reveal-delay-6">
+                    <div class="card-content">
+                        <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3 class="card-title">Tech Consulting</h3>
+                        <p class="card-description">Strategic technology guidance — architecture reviews, digital transformation, CTO-as-a-Service.</p>
+                        <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ========== CTA SECTION ========== -->
-    <section class="cta-section" id="cta">
+    <!-- ===== Tech Stack ===== -->
+    <section class="section" id="tech" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Our Toolkit</span>
+                <h2 class="section-title">Technologies We Work With</h2>
+                <p class="section-subtitle">5+ years of hands-on experience across the modern web stack.</p>
+            </div>
+            <div class="tech-grid reveal">
+                <span class="tech-item">React</span>
+                <span class="tech-item">Next.js</span>
+                <span class="tech-item">Vue.js</span>
+                <span class="tech-item">Nuxt</span>
+                <span class="tech-item">HTML / CSS / JS</span>
+                <span class="tech-item">Shopify</span>
+                <span class="tech-item">Node.js</span>
+                <span class="tech-item">Express</span>
+                <span class="tech-item">Java</span>
+                <span class="tech-item">Spring Boot</span>
+                <span class="tech-item">PHP</span>
+                <span class="tech-item">PostgreSQL</span>
+                <span class="tech-item">MongoDB</span>
+                <span class="tech-item">Docker</span>
+                <span class="tech-item">Kubernetes</span>
+                <span class="tech-item">AWS</span>
+                <span class="tech-item">Azure</span>
+                <span class="tech-item">GCP</span>
+                <span class="tech-item">GraphQL</span>
+                <span class="tech-item">REST APIs</span>
+                <span class="tech-item">Figma</span>
+                <span class="tech-item">Postman</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
         <div class="container">
             <div class="cta-content reveal">
-                <span class="section-label">Let's Work Together</span>
-                <h2>Ready to Take the<br />Next Step?</h2>
-                <p>Tell us about your project, and let's build something remarkable together.</p>
-                <a href="/contact" class="btn-cta">Get in Touch →</a>
+                <h2 class="cta-title">Ready to Make It Big?</h2>
+                <p class="cta-subtitle">Let's discuss your project and find the right solution for your business.</p>
+                <a href="/contact" class="btn btn-primary">Start a Conversation <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
-    <footer class="footer" id="footer">
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-brand">
-                    <img src="/assets/logo.png" alt="MakeBig" class="footer-logo" />
-                    <p>Your full-service web solutions partner. We are innovators. We are MakeBig.</p>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/company/makebig" target="_blank" rel="noopener"
-                            aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://www.instagram.com/makebig" target="_blank" rel="noopener"
-                            aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/918467406492" target="_blank" rel="noopener" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+                <div class="footer-section">
+                    <div class="footer-brand">Make<span>Big</span></div>
+                    <p class="footer-text">Full-service digital solutions built by a developer with 5+ years of experience. Helping companies make it big, one project at a time.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/918467406492" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-
-                <div>
-                    <h4>Services</h4>
+                <div class="footer-section">
+                    <h4 class="footer-title">Services</h4>
                     <div class="footer-links">
-                        <a href="/services#web-dev">Website Development</a>
-                        <a href="/services#ecommerce">eCommerce Solutions</a>
-                        <a href="/services#uiux">UI/UX Design</a>
-                        <a href="/services#custom-software">Custom Software</a>
-                        <a href="/services#api">API & Integration</a>
+                        <a href="/services/frontend">Frontend Development</a>
+                        <a href="/services/backend">Backend &amp; APIs</a>
+                        <a href="/services/shopify">Shopify &amp; eCommerce</a>
+                        <a href="/services/integrations">Integrations</a>
+                        <a href="/services/testing">Testing &amp; QA</a>
+                        <a href="/services/consulting">Tech Consulting</a>
                     </div>
                 </div>
-
-                <div>
-                    <h4>Company</h4>
+                <div class="footer-section">
+                    <h4 class="footer-title">Get in Touch</h4>
                     <div class="footer-links">
-                        <a href="/">Home</a>
-                        <a href="/services">Services</a>
-                        <a href="/contact">Contact Us</a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4>Contact</h4>
-                    <div class="footer-links">
-                        <a href="mailto:booraakash@gmail.com">booraakash@gmail.com</a>
-                        <a href="tel:+918467406492">+91 846 740 6492</a>
-                        <a href="https://wa.me/918467406492" target="_blank">WhatsApp Chat</a>
+                        <a href="mailto:akash@makebig.in"><i class="fas fa-envelope" style="width:16px; margin-right:8px;"></i>akash@makebig.in</a>
+                        <a href="tel:+918467406492"><i class="fas fa-phone" style="width:16px; margin-right:8px;"></i>+91 846 740 6492</a>
+                        <a href="https://wa.me/918467406492"><i class="fab fa-whatsapp" style="width:16px; margin-right:8px;"></i>WhatsApp</a>
                     </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2026 MakeBig Web Solutions. All rights reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
+                <p>&copy; 2026 MakeBig Digital Solutions. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ========== SCRIPTS ========== -->
-    <script>
-        // === Navbar Scroll Effect ===
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 60);
-        });
-
-        // === Mobile Menu ===
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            mobileMenu.classList.toggle('open');
-            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-        });
-
-        // Close mobile menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // === Scroll Reveal Animation ===
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -60px 0px'
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // === Smooth scroll for anchor links ===
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    </script>
-
+    <!-- Scripts -->
     <script src="/whatsapp-widget.js"></script>
-</body>
+    <script src="/main.js"></script>
 
+</body>
 </html>
