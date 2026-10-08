@@ -3,217 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MakeBig Digital Solutions — Where Digital Ideas Scale Big</title>
-    <meta name="description" content="MakeBig Digital Solutions — Where Digital Ideas Scale Big. Full-service web development, Shopify, integrations, and consulting with 5+ years of expertise.">
-    <meta name="keywords" content="web development, Shopify, ecommerce, frontend, backend, API integrations, tech consulting, MakeBig">
+    <title>MakeBig Digital Solutions | Web, Shopify and AI development</title>
+    <meta name="description" content="MakeBig is a founder-led development studio in India. We build websites, Shopify stores, AI chatbots and MCP servers that connect AI assistants to your systems.">
     <link rel="canonical" href="https://makebig.in/">
-    <link rel="icon" type="image/svg+xml" href="/assets/logo-icon.svg">
-    <meta property="og:title" content="MakeBig Digital Solutions — Where Digital Ideas Scale Big">
-    <meta property="og:description" content="Where Digital Ideas Scale Big. Full-service web development, Shopify, integrations, and consulting.">
+    <link rel="icon" type="image/png" href="/assets/logo-icon.png">
+    <meta property="og:title" content="MakeBig Digital Solutions | Web, Shopify and AI development">
+    <meta property="og:description" content="MakeBig is a founder-led development studio in India. We build websites, Shopify stores, AI chatbots and MCP servers that connect AI assistants to your systems.">
     <meta property="og:url" content="https://makebig.in/">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://makebig.in/assets/logo-dark.png">
 
-    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- ===== Navbar ===== -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="/" class="nav-logo">
-                <img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" class="nav-logo-img">
-            </a>
-            <div class="nav-links" id="navLinks">
-                <a href="/" class="nav-link active">Home</a>
-                <a href="/services" class="nav-link">Services</a>
-                <a href="/about" class="nav-link">About</a>
-                <a href="/contact" class="nav-link">Contact</a>
-            </div>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo"><img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" width="169" height="38"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav">
+                <span></span><span></span><span></span>
             </button>
+            <nav class="nav" id="siteNav" aria-label="Main">
+                <a href="/services">Services</a>
+                <a href="/services/ai-integrations">AI integrations</a>
+                <a href="/services/mcp">MCP servers</a>
+                <a href="/about">About</a>
+                <a href="/contact" class="nav-cta">Start a project</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- ===== Hero ===== -->
-    <section class="hero">
-        <div class="hero-content">
-            <span class="hero-label">MakeBig Digital Solutions</span>
-            <h1 class="hero-title">Where Digital Ideas<br>Scale <span class="highlight">Big</span></h1>
-            <p class="hero-subtitle">End-to-end web development — from pixel-perfect frontends to robust backends, Shopify stores to custom integrations. Built on 5+ years of real-world expertise.</p>
-            <div class="hero-buttons">
-                <a href="/contact" class="btn btn-primary">Get in Touch <i class="fas fa-arrow-right"></i></a>
-                <a href="/services" class="btn btn-secondary">Our Services</a>
+    <main id="main">
+        <section class="hero on-dark">
+            <div class="container hero-grid">
+                <div>
+                    <span class="eyebrow">Web, Shopify and AI development studio</span>
+                    <h1>We build websites, Shopify stores and AI integrations that <em>keep working</em> after launch.</h1>
+                    <p class="lead">MakeBig is a small, founder-led studio. You talk to the engineer who writes your code, from the first call to handover. Behind that is five years of production work in React, Node.js, Java and Shopify. Today it also covers AI chatbots and MCP servers that connect assistants like Claude and ChatGPT to your own systems.</p>
+                    <div class="hero-actions">
+                        <a href="/contact" class="btn btn-primary">Discuss your project <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                        <a href="/services" class="btn btn-outline">See what we do</a>
+                    </div>
+                    <div class="hero-meta">
+                        <span>Founder with 5+ years in production work</span>
+                        <span>Direct line to the developer</span>
+                        <span>Based in India, available worldwide</span>
+                    </div>
+                </div>
+                <div class="code-panel" aria-label="Example code: a tool from a Shopify MCP server">
+                    <div class="code-panel-bar"><span>src/tools/find-order.ts</span><span>MCP &middot; TypeScript</span></div>
+<pre><code><span class="c">// One tool from an example Shopify MCP server.</span>
+<span class="c">// Claude or ChatGPT can call it. It can only read.</span>
+server.<span class="f">registerTool</span>(
+  <span class="s">"find_order"</span>,
+  {
+    description: <span class="s">"Look up an order by number or email"</span>,
+    inputSchema: { query: z.<span class="f">string</span>() },
+  },
+  <span class="k">async</span> ({ query }) =&gt; {
+    <span class="k">const</span> order = <span class="k">await</span> shopify.<span class="f">findOrder</span>(query);
+    <span class="k">return</span> {
+      content: [{ type: <span class="s">"text"</span>, text: <span class="f">summarize</span>(order) }],
+    };
+  }
+);</code></pre>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ===== Services ===== -->
-    <section class="section" id="services">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">What We Do</span>
-                <h2 class="section-title">Services</h2>
-                <p class="section-subtitle">Full-stack expertise across the modern web — from concept to deployment and beyond.</p>
+        <section class="logos-band">
+            <div class="container">
+                <p class="logos-title">Platforms and tools we build on</p>
+                <ul class="logo-grid">
+                    <li style="--brand: #7AB55C"><span class="brand-icon" style="--icon: url(/assets/brands/shopify.svg)" aria-hidden="true"></span>Shopify</li>
+                    <li style="--brand: #087EA4"><span class="brand-icon" style="--icon: url(/assets/brands/react.svg)" aria-hidden="true"></span>React</li>
+                    <li style="--brand: #000000"><span class="brand-icon" style="--icon: url(/assets/brands/nextdotjs.svg)" aria-hidden="true"></span>Next.js</li>
+                    <li style="--brand: #41B883"><span class="brand-icon" style="--icon: url(/assets/brands/vuedotjs.svg)" aria-hidden="true"></span>Vue.js</li>
+                    <li style="--brand: #5FA04E"><span class="brand-icon" style="--icon: url(/assets/brands/nodedotjs.svg)" aria-hidden="true"></span>Node.js</li>
+                    <li style="--brand: #6DB33F"><span class="brand-icon" style="--icon: url(/assets/brands/springboot.svg)" aria-hidden="true"></span>Spring Boot</li>
+                    <li style="--brand: #4169E1"><span class="brand-icon" style="--icon: url(/assets/brands/postgresql.svg)" aria-hidden="true"></span>PostgreSQL</li>
+                    <li style="--brand: #47A248"><span class="brand-icon" style="--icon: url(/assets/brands/mongodb.svg)" aria-hidden="true"></span>MongoDB</li>
+                    <li style="--brand: #2496ED"><span class="brand-icon" style="--icon: url(/assets/brands/docker.svg)" aria-hidden="true"></span>Docker</li>
+                    <li style="--brand: #326CE5"><span class="brand-icon" style="--icon: url(/assets/brands/kubernetes.svg)" aria-hidden="true"></span>Kubernetes</li>
+                    <li style="--brand: #4285F4"><span class="brand-icon" style="--icon: url(/assets/brands/googlecloud.svg)" aria-hidden="true"></span>Google Cloud</li>
+                    <li style="--brand: #000000"><span class="brand-icon" style="--icon: url(/assets/brands/vercel.svg)" aria-hidden="true"></span>Vercel</li>
+                    <li style="--brand: #D97757"><span class="brand-icon" style="--icon: url(/assets/brands/claude.svg)" aria-hidden="true"></span>Claude</li>
+                    <li style="--brand: #000000"><span class="brand-icon" style="--icon: url(/assets/brands/modelcontextprotocol.svg)" aria-hidden="true"></span>MCP</li>
+                    <li style="--brand: #635BFF"><span class="brand-icon" style="--icon: url(/assets/brands/stripe.svg)" aria-hidden="true"></span>Stripe</li>
+                    <li style="--brand: #FF7A59"><span class="brand-icon" style="--icon: url(/assets/brands/hubspot.svg)" aria-hidden="true"></span>HubSpot</li>
+                    <li style="--brand: #E10098"><span class="brand-icon" style="--icon: url(/assets/brands/graphql.svg)" aria-hidden="true"></span>GraphQL</li>
+                    <li style="--brand: #3178C6"><span class="brand-icon" style="--icon: url(/assets/brands/typescript.svg)" aria-hidden="true"></span>TypeScript</li>
+                    <li style="--brand: #F24E1E"><span class="brand-icon" style="--icon: url(/assets/brands/figma.svg)" aria-hidden="true"></span>Figma</li>
+                    <li style="--brand: #FF6C37"><span class="brand-icon" style="--icon: url(/assets/brands/postman.svg)" aria-hidden="true"></span>Postman</li>
+                </ul>
+                <p class="logos-note">Logos are trademarks of their owners. They show what we work with, not endorsements.</p>
             </div>
-            <div class="cards-grid">
-                <!-- Card 1 -->
-                <a href="/services/frontend" class="card reveal reveal-delay-1">
-                    <div class="card-content">
-                        <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
-                        <h3 class="card-title">Frontend Development</h3>
-                        <p class="card-description">Modern, responsive interfaces built with React, Next.js, and Vue.js that users love.</p>
-                        <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-                <!-- Card 2 -->
-                <a href="/services/backend" class="card reveal reveal-delay-2">
-                    <div class="card-content">
-                        <div class="card-icon"><i class="fas fa-server"></i></div>
-                        <h3 class="card-title">Backend &amp; APIs</h3>
-                        <p class="card-description">Scalable server-side solutions with Node.js, Java Spring, and cloud infrastructure.</p>
-                        <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-                <!-- Card 3 -->
-                <a href="/services/shopify" class="card reveal reveal-delay-3">
-                    <div class="card-content">
-                        <div class="card-icon"><i class="fab fa-shopify"></i></div>
-                        <h3 class="card-title">Shopify &amp; eCommerce</h3>
-                        <p class="card-description">Complete online store solutions — from setup and custom themes to app development.</p>
-                        <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-                <!-- Card 4 -->
-                <a href="/services/integrations" class="card reveal reveal-delay-4">
-                    <div class="card-content">
-                        <div class="card-icon"><i class="fas fa-plug"></i></div>
-                        <h3 class="card-title">Integrations &amp; Automation</h3>
-                        <p class="card-description">Connect your tools, automate workflows, and build custom API integrations that save time.</p>
-                        <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-                <!-- Card 5 -->
-                <a href="/services/testing" class="card reveal reveal-delay-5">
-                    <div class="card-content">
-                        <div class="card-icon"><i class="fas fa-vial"></i></div>
-                        <h3 class="card-title">Testing &amp; QA</h3>
-                        <p class="card-description">Comprehensive quality assurance — automation, UI, API, and integration testing.</p>
-                        <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-                <!-- Card 6 -->
-                <a href="/services/consulting" class="card reveal reveal-delay-6">
-                    <div class="card-content">
-                        <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
-                        <h3 class="card-title">Tech Consulting</h3>
-                        <p class="card-description">Strategic technology guidance — architecture reviews, digital transformation, CTO-as-a-Service.</p>
-                        <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ===== Tech Stack ===== -->
-    <section class="section" id="tech" style="padding-top: 0;">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Our Toolkit</span>
-                <h2 class="section-title">Technologies We Work With</h2>
-                <p class="section-subtitle">5+ years of hands-on experience across the modern web stack.</p>
+        <section class="section">
+            <div class="container split">
+                <div class="split-head">
+                    <span class="eyebrow">Services</span>
+                    <h2 class="h2">What we do</h2>
+                    <p class="muted">A project often needs two or three of these together. If yours doesn't fit neatly, ask anyway.</p>
+                </div>
+                <div class="service-list">
+                    <a href="/services/frontend" class="service-row">
+                        <span class="num">01</span>
+                        <div><h3>Websites &amp; web apps</h3><p>React, Next.js and Vue frontends that are fast, accessible and match the design.</p></div>
+                        <span class="go" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a href="/services/backend" class="service-row">
+                        <span class="num">02</span>
+                        <div><h3>Backend &amp; APIs</h3><p>APIs, databases and cloud setup in Node.js or Java Spring, built to be maintained by someone other than us.</p></div>
+                        <span class="go" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a href="/services/shopify" class="service-row">
+                        <span class="num">03</span>
+                        <div><h3>Shopify</h3><p>Store setup and migration, custom themes, custom apps, Shopify Functions and Flow.</p></div>
+                        <span class="go" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a href="/services/ai-integrations" class="service-row">
+                        <span class="num">04</span>
+                        <div><h3>AI integrations &amp; chatbots <span class="tag-new">AI</span></h3><p>Support chatbots, store assistants and AI features that answer from your own data, not from guesswork.</p></div>
+                        <span class="go" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a href="/services/mcp" class="service-row">
+                        <span class="num">05</span>
+                        <div><h3>MCP servers <span class="tag-new">AI</span></h3><p>Let Claude, ChatGPT or Cursor safely work with Shopify, your database or your internal tools.</p></div>
+                        <span class="go" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a href="/services/integrations" class="service-row">
+                        <span class="num">06</span>
+                        <div><h3>Integrations &amp; automation</h3><p>Connect the tools you already pay for and remove the copy-paste work between them.</p></div>
+                        <span class="go" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a href="/services/testing" class="service-row">
+                        <span class="num">07</span>
+                        <div><h3>Testing &amp; QA</h3><p>Automated end-to-end, UI and API tests, so releases stop breaking things that used to work.</p></div>
+                        <span class="go" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a href="/services/consulting" class="service-row">
+                        <span class="num">08</span>
+                        <div><h3>Technical consulting</h3><p>Architecture reviews, technology choices and part-time technical leadership.</p></div>
+                        <span class="go" aria-hidden="true">&rarr;</span>
+                    </a>
+                </div>
             </div>
-            <div class="tech-grid reveal">
-                <span class="tech-item">React</span>
-                <span class="tech-item">Next.js</span>
-                <span class="tech-item">Vue.js</span>
-                <span class="tech-item">Nuxt</span>
-                <span class="tech-item">HTML / CSS / JS</span>
-                <span class="tech-item">Shopify</span>
-                <span class="tech-item">Node.js</span>
-                <span class="tech-item">Express</span>
-                <span class="tech-item">Java</span>
-                <span class="tech-item">Spring Boot</span>
-                <span class="tech-item">PHP</span>
-                <span class="tech-item">PostgreSQL</span>
-                <span class="tech-item">MongoDB</span>
-                <span class="tech-item">Docker</span>
-                <span class="tech-item">Kubernetes</span>
-                <span class="tech-item">AWS</span>
-                <span class="tech-item">Azure</span>
-                <span class="tech-item">GCP</span>
-                <span class="tech-item">GraphQL</span>
-                <span class="tech-item">REST APIs</span>
-                <span class="tech-item">Figma</span>
-                <span class="tech-item">Postman</span>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ===== CTA ===== -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content reveal">
-                <h2 class="cta-title">Ready to Make It Big?</h2>
-                <p class="cta-subtitle">Let's discuss your project and find the right solution for your business.</p>
-                <a href="/contact" class="btn btn-primary">Start a Conversation <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
+        <section class="section section-white" id="ai">
+            <div class="container">
+                <span class="eyebrow">AI &amp; MCP</span>
+                <h2 class="h2">AI that's connected to your real data, not a demo</h2>
+                <p class="lead mb-40">Most AI projects stall because the model can't see your orders, your stock or your documents. Building that connection, and keeping it safe, is the part we do.</p>
 
-    <!-- ===== Footer ===== -->
-    <footer class="footer">
+                <div class="feature-pair">
+                    <div>
+                        <h3>AI integrations &amp; chatbots</h3>
+                        <p>We add language models to the product and workflows you already have.</p>
+                        <ul class="ticks">
+                            <li><strong>Support chatbots</strong> that answer from your help docs, policies and catalogue, and hand over to a person when they should.</li>
+                            <li><strong>Shopify store assistants</strong> for product questions, sizing and order status.</li>
+                            <li><strong>Document processing</strong> that pulls fields from invoices, forms and PDFs into your systems.</li>
+                            <li><strong>Internal tools</strong> to search your own docs, draft replies and summarise tickets.</li>
+                        </ul>
+                        <a href="/services/ai-integrations" class="text-link">AI integrations &rarr;</a>
+                    </div>
+                    <div>
+                        <h3>MCP servers</h3>
+                        <p>MCP (Model Context Protocol) is the open standard that lets AI assistants such as Claude, ChatGPT and Cursor use outside tools. We build the MCP server that sits between the assistant and your systems.</p>
+                        <ul class="ticks">
+                            <li><strong>Shopify:</strong> orders, products, inventory, customers and discounts through the Admin API.</li>
+                            <li><strong>Your own systems:</strong> backend, database or internal APIs.</li>
+                            <li><strong>Third-party tools:</strong> CRMs, helpdesks, Google Sheets, payment providers.</li>
+                            <li><strong>The boring parts done properly:</strong> sign-in, permission scopes, audit logs and hosting.</li>
+                        </ul>
+                        <a href="/services/mcp" class="text-link">MCP servers &rarr;</a>
+                    </div>
+                </div>
+
+                <p class="note"><strong>We'll give you a straight answer first.</strong> If a simple rule, a better search box or an existing tool would solve the problem more cheaply than AI, we'll tell you on the first call.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <span class="eyebrow">Process</span>
+                <h2 class="h2 mb-40">How a project runs</h2>
+                <ol class="steps">
+                    <li><h3>Call</h3><p>A 30-minute call about what you need and what you've tried. No charge, no sales deck.</p></li>
+                    <li><h3>Written scope</h3><p>A short document listing what we'll build and what we won't, with a timeline and a fixed quote or estimate.</p></li>
+                    <li><h3>Build</h3><p>Work lands in small pieces on a staging link you can click through, with a written update every week.</p></li>
+                    <li><h3>Handover</h3><p>Code in your repository, deployment set up, notes on how it all works. Support continues if you want it.</p></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section section-alt">
+            <div class="container">
+                <span class="eyebrow">Working together</span>
+                <h2 class="h2 mb-40">Three ways to engage</h2>
+                <div class="models">
+                    <div class="model">
+                        <h3>Fixed-scope project</h3>
+                        <p class="fit">For a defined deliverable</p>
+                        <p>A website, a Shopify app, a chatbot, an MCP server. Agreed scope, agreed price, delivered in milestones.</p>
+                    </div>
+                    <div class="model">
+                        <h3>Monthly retainer</h3>
+                        <p class="fit">For ongoing work</p>
+                        <p>A set number of hours each month for new features, fixes and upkeep. Good for stores and products that keep changing.</p>
+                    </div>
+                    <div class="model">
+                        <h3>Hourly consulting</h3>
+                        <p class="fit">For reviews and advice</p>
+                        <p>Architecture reviews, second opinions on a vendor's proposal, or help deciding whether AI fits a problem.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container split">
+                <div class="split-head">
+                    <span class="eyebrow">Stack</span>
+                    <h2 class="h2">Tools we use</h2>
+                    <p class="muted">We pick based on what your team can maintain after we're done, not on what's new.</p>
+                </div>
+                <dl class="stack">
+                    <div class="stack-row"><dt>Frontend</dt><dd>React, Next.js, Vue, Nuxt, JavaScript / TypeScript, HTML &amp; CSS</dd></div>
+                    <div class="stack-row"><dt>Backend</dt><dd>Node.js, Express, Java, Spring Boot, PHP, GraphQL, REST</dd></div>
+                    <div class="stack-row"><dt>Commerce</dt><dd>Shopify: Liquid themes, custom apps, Functions, Flow, Admin &amp; Storefront APIs</dd></div>
+                    <div class="stack-row"><dt>AI</dt><dd>Claude API, OpenAI API, open-weight models, embeddings and vector search, MCP SDKs</dd></div>
+                    <div class="stack-row"><dt>Data</dt><dd>PostgreSQL, MongoDB</dd></div>
+                    <div class="stack-row"><dt>Cloud &amp; ops</dt><dd>AWS, Azure, GCP, Docker, Kubernetes, Vercel</dd></div>
+                    <div class="stack-row"><dt>Testing</dt><dd>Playwright, Cypress, Selenium, Postman</dd></div>
+                    <div class="stack-row"><dt>Design</dt><dd>Figma</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="cta-band on-dark">
+            <div class="container cta-band-inner">
+                <div>
+                    <h2>Tell us what you're trying to build.</h2>
+                    <p>A few lines is enough. We'll reply with questions, or a time to talk.</p>
+                    <a href="/contact" class="btn btn-primary">Start a project <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                </div>
+                <div class="cta-direct">
+                    <div><span class="label">Email</span><a href="mailto:akash@makebig.in">akash@makebig.in</a></div>
+                    <div><span class="label">Phone</span><a href="tel:+918467406492">+91 84674 06492</a></div>
+                    <div><span class="label">WhatsApp</span><a href="https://wa.me/918467406492" rel="noopener">Message us</a></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-section">
-                    <div class="footer-brand">
-                        <img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" class="footer-logo-img">
-                    </div>
-                    <p class="footer-text">Full-service digital solutions built by a developer with 5+ years of experience. Helping companies make it big, one project at a time.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/918467406492" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    </div>
+                <div>
+                    <img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" width="178" height="40">
+                    <p>A founder-led development studio in India. Websites, Shopify, AI integrations and MCP servers for businesses worldwide.</p>
                 </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">Services</h4>
-                    <div class="footer-links">
-                        <a href="/services/frontend">Frontend Development</a>
-                        <a href="/services/backend">Backend &amp; APIs</a>
-                        <a href="/services/shopify">Shopify &amp; eCommerce</a>
-                        <a href="/services/integrations">Integrations</a>
-                        <a href="/services/testing">Testing &amp; QA</a>
-                        <a href="/services/consulting">Tech Consulting</a>
-                    </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/services/frontend">Frontend</a></li>
+                        <li><a href="/services/backend">Backend &amp; APIs</a></li>
+                        <li><a href="/services/shopify">Shopify</a></li>
+                        <li><a href="/services/ai-integrations">AI &amp; chatbots</a></li>
+                        <li><a href="/services/mcp">MCP servers</a></li>
+                        <li><a href="/services/integrations">Integrations</a></li>
+                        <li><a href="/services/testing">Testing &amp; QA</a></li>
+                        <li><a href="/services/consulting">Consulting</a></li>
+                    </ul>
                 </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">Get in Touch</h4>
-                    <div class="footer-links">
-                        <a href="mailto:akash@makebig.in"><i class="fas fa-envelope" style="width:16px; margin-right:8px;"></i>akash@makebig.in</a>
-                        <a href="tel:+918467406492"><i class="fas fa-phone" style="width:16px; margin-right:8px;"></i>+91 846 740 6492</a>
-                        <a href="https://wa.me/918467406492"><i class="fab fa-whatsapp" style="width:16px; margin-right:8px;"></i>WhatsApp</a>
-                    </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/services">All services</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:akash@makebig.in">akash@makebig.in</a></li>
+                        <li><a href="tel:+918467406492">+91 84674 06492</a></li>
+                        <li><a href="https://wa.me/918467406492" rel="noopener">WhatsApp</a></li>
+                        <li>India, IST (UTC+5:30)</li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 MakeBig Digital Solutions. All rights reserved.</p>
+                <span>&copy; <span id="year">2026</span> MakeBig Digital Solutions</span>
+                <span>makebig.in</span>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="/whatsapp-widget.js"></script>
     <script src="/main.js"></script>
-
 </body>
 </html>

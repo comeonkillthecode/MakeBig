@@ -3,158 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing & QA — MakeBig Digital Solutions</title>
-    <meta name="description" content="Ship with confidence with MakeBig's comprehensive quality assurance for every layer of your application.">
-    <meta name="keywords" content="Testing, QA, Automation Testing, UI Testing, API Testing, Integration Testing, Playwright, Cypress">
+    <title>Testing and QA | MakeBig</title>
+    <meta name="description" content="Automated end-to-end, UI, API and integration testing with Playwright, Cypress, Selenium and Postman.">
     <link rel="canonical" href="https://makebig.in/services/testing">
-    <meta property="og:title" content="Testing & QA — MakeBig Digital Solutions">
-    <meta property="og:description" content="Ship with confidence with MakeBig's comprehensive quality assurance for every layer of your application.">
+    <link rel="icon" type="image/png" href="/assets/logo-icon.png">
+    <meta property="og:title" content="Testing and QA | MakeBig">
+    <meta property="og:description" content="Automated end-to-end, UI, API and integration testing with Playwright, Cypress, Selenium and Postman.">
     <meta property="og:url" content="https://makebig.in/services/testing">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://makebig.in/assets/logo-dark.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" type="image/svg+xml" href="/assets/logo-icon.svg">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="/" class="nav-logo">
-                <img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" class="nav-logo-img">
-            </a>
-            <div class="nav-links" id="navLinks">
-                <a href="/" class="nav-link">Home</a>
-                <a href="/services" class="nav-link active">Services</a>
-                <a href="/about" class="nav-link">About</a>
-                <a href="/contact" class="nav-link">Contact</a>
-            </div>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo"><img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" width="169" height="38"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav">
                 <span></span><span></span><span></span>
             </button>
+            <nav class="nav" id="siteNav" aria-label="Main">
+                <a href="/services" aria-current="page">Services</a>
+                <a href="/services/ai-integrations">AI integrations</a>
+                <a href="/services/mcp">MCP servers</a>
+                <a href="/about">About</a>
+                <a href="/contact" class="nav-cta">Start a project</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <div class="container reveal">
-            <div class="breadcrumb">
-                <a href="/">Home</a> <span class="separator">/</span> <a href="/services">Services</a> <span class="separator">/</span> Testing
+    <main id="main">
+        <header class="page-header">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/services">Services</a><span>/</span><span>Testing &amp; QA</span></nav>
+                <span class="eyebrow">Service 07</span>
+                <h1>Testing that catches problems before your customers do</h1>
+                <p class="lead">Automated test suites for new and existing products, running on every change, so releases stop breaking things that used to work.</p>
             </div>
-            <h1 class="page-hero-title">Testing & QA</h1>
-            <p class="page-hero-subtitle">Ship with confidence — comprehensive quality assurance for every layer of your application.</p>
-        </div>
-    </section>
+        </header>
 
-    <!-- Detail Section -->
-    <section class="section detail-section">
-        <div class="container">
-            <div class="detail-grid">
-                <div class="detail-card reveal reveal-delay-1">
-                    <div class="detail-card-icon">
-                        <i class="fas fa-magic"></i>
-                    </div>
-                    <h3 class="card-title">Automation Testing</h3>
-                    <p class="card-description">End-to-end test automation with Selenium, Cypress, and Playwright. Catch bugs before your users do with reliable, maintainable test suites.</p>
-                    <div class="detail-tags">
-                        <span class="detail-tag">Selenium</span>
-                        <span class="detail-tag">Cypress</span>
-                        <span class="detail-tag">Playwright</span>
-                    </div>
+        <section class="section">
+            <div class="container split">
+                <div class="split-head">
+                    <h2 class="h2">What's included</h2>
                 </div>
-                
-                <div class="detail-card reveal reveal-delay-2">
-                    <div class="detail-card-icon">
-                        <i class="fas fa-eye"></i>
+                <div class="offer-list">
+                    <div class="offer">
+                        <h3>End-to-end automation</h3>
+                        <div>
+                            <p>The journeys that make you money (sign-up, checkout, booking) tested automatically in real browsers, and wired into your CI.</p>
+                            <p class="tools">Playwright &middot; Cypress &middot; Selenium</p>
+                        </div>
                     </div>
-                    <h3 class="card-title">UI Testing</h3>
-                    <p class="card-description">Visual regression testing, cross-browser compatibility checks, and responsive design validation. Ensure every pixel is perfect on every device.</p>
-                    <div class="detail-tags">
-                        <span class="detail-tag">Visual Regression</span>
-                        <span class="detail-tag">Cross-Browser</span>
-                        <span class="detail-tag">Responsive</span>
+                    <div class="offer">
+                        <h3>UI testing</h3>
+                        <div>
+                            <p>Visual regression checks, cross-browser runs and responsive layout validation, so a CSS change on one page doesn't quietly break another.</p>
+                            <p class="tools">Visual snapshots &middot; cross-browser &middot; device matrix</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="detail-card reveal reveal-delay-3">
-                    <div class="detail-card-icon">
-                        <i class="fas fa-plug"></i>
+                    <div class="offer">
+                        <h3>API testing</h3>
+                        <div>
+                            <p>Functional, contract and load tests for your APIs, with response time benchmarks you can track release to release.</p>
+                            <p class="tools">Postman &middot; contract tests &middot; load testing</p>
+                        </div>
                     </div>
-                    <h3 class="card-title">API Testing</h3>
-                    <p class="card-description">Comprehensive API validation with Postman, load testing, contract testing, and performance benchmarking. Ensure your APIs are fast, reliable, and correct.</p>
-                    <div class="detail-tags">
-                        <span class="detail-tag">Postman</span>
-                        <span class="detail-tag">Load Testing</span>
-                        <span class="detail-tag">Contract Testing</span>
+                    <div class="offer">
+                        <h3>Integration testing</h3>
+                        <div>
+                            <p>Checks that your services, database and third-party integrations still work together, including what happens when one of them fails.</p>
+                            <p class="tools">Test environments &middot; mocks &amp; sandboxes</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="detail-card reveal reveal-delay-4">
-                    <div class="detail-card-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3 class="card-title">Integration Testing</h3>
-                    <p class="card-description">End-to-end workflow validation across interconnected systems. Verify that all your services, databases, and third-party integrations work together seamlessly.</p>
-                    <div class="detail-tags">
-                        <span class="detail-tag">E2E Testing</span>
-                        <span class="detail-tag">Workflow Validation</span>
-                        <span class="detail-tag">CI/CD</span>
+                    <div class="offer">
+                        <h3>Testing AI features</h3>
+                        <div>
+                            <p>Evaluation sets for chatbots and AI features: real questions, expected answers, and a score you can watch for regressions.</p>
+                            <p class="tools">See <a href="/services/ai-integrations">AI integrations</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="section cta-section">
-        <div class="container reveal">
-            <div class="cta-content">
-                <h2 class="cta-title">Ready to Ship with Confidence?</h2>
-                <p class="cta-subtitle">Let's build a comprehensive test suite to ensure the quality of your application.</p>
-                <a href="/contact" class="btn btn-primary">Get in Touch</a>
+        <section class="cta-band on-dark">
+            <div class="container cta-band-inner">
+                <div>
+                    <h2>Releases making you nervous?</h2>
+                    <p>Tell us what you're shipping and how it's tested today.</p>
+                    <a href="/contact" class="btn btn-primary">Start a project <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                </div>
+                <div class="cta-direct">
+                    <div><span class="label">Email</span><a href="mailto:akash@makebig.in">akash@makebig.in</a></div>
+                    <div><span class="label">Phone</span><a href="tel:+918467406492">+91 84674 06492</a></div>
+                    <div><span class="label">WhatsApp</span><a href="https://wa.me/918467406492" rel="noopener">Message us</a></div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-section">
-                    <div class="footer-brand">
-                        <img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" class="footer-logo-img">
-                    </div>
-                    <p class="footer-text">Full-service digital solutions built by a developer with 5+ years of experience. Helping companies make it big, one project at a time.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/918467406492" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    </div>
+                <div>
+                    <img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" width="178" height="40">
+                    <p>A founder-led development studio in India. Websites, Shopify, AI integrations and MCP servers for businesses worldwide.</p>
                 </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">Services</h4>
-                    <div class="footer-links">
-                        <a href="/services/frontend">Frontend Development</a>
-                        <a href="/services/backend">Backend &amp; APIs</a>
-                        <a href="/services/shopify">Shopify &amp; eCommerce</a>
-                        <a href="/services/integrations">Integrations</a>
-                        <a href="/services/testing">Testing &amp; QA</a>
-                        <a href="/services/consulting">Tech Consulting</a>
-                    </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/services/frontend">Frontend</a></li>
+                        <li><a href="/services/backend">Backend &amp; APIs</a></li>
+                        <li><a href="/services/shopify">Shopify</a></li>
+                        <li><a href="/services/ai-integrations">AI &amp; chatbots</a></li>
+                        <li><a href="/services/mcp">MCP servers</a></li>
+                        <li><a href="/services/integrations">Integrations</a></li>
+                        <li><a href="/services/testing">Testing &amp; QA</a></li>
+                        <li><a href="/services/consulting">Consulting</a></li>
+                    </ul>
                 </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">Get in Touch</h4>
-                    <div class="footer-links">
-                        <a href="mailto:akash@makebig.in"><i class="fas fa-envelope" style="width:16px; margin-right:8px;"></i>akash@makebig.in</a>
-                        <a href="tel:+918467406492"><i class="fas fa-phone" style="width:16px; margin-right:8px;"></i>+91 846 740 6492</a>
-                        <a href="https://wa.me/918467406492"><i class="fab fa-whatsapp" style="width:16px; margin-right:8px;"></i>WhatsApp</a>
-                    </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/services">All services</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:akash@makebig.in">akash@makebig.in</a></li>
+                        <li><a href="tel:+918467406492">+91 84674 06492</a></li>
+                        <li><a href="https://wa.me/918467406492" rel="noopener">WhatsApp</a></li>
+                        <li>India, IST (UTC+5:30)</li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 MakeBig Digital Solutions. All rights reserved.</p>
+                <span>&copy; <span id="year">2026</span> MakeBig Digital Solutions</span>
+                <span>makebig.in</span>
             </div>
         </div>
     </footer>

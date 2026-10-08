@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Sitemap: https://makebig.com/sitemap.xml
+Disallow: /brand-assets
 
-# Allow all bots to crawl all content
-# Adjust the sitemap URL to your actual domain 
+Sitemap: https://makebig.in/sitemap.xml

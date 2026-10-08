@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP server development for Shopify and more | MakeBig</title>
+    <meta name="description" content="We build Model Context Protocol (MCP) servers so AI assistants like Claude, ChatGPT and Cursor can safely use Shopify, your database and your internal tools.">
+    <link rel="canonical" href="https://makebig.in/services/mcp">
+    <link rel="icon" type="image/png" href="/assets/logo-icon.png">
+    <meta property="og:title" content="MCP server development for Shopify and more | MakeBig">
+    <meta property="og:description" content="We build Model Context Protocol (MCP) servers so AI assistants like Claude, ChatGPT and Cursor can safely use Shopify, your database and your internal tools.">
+    <meta property="og:url" content="https://makebig.in/services/mcp">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://makebig.in/assets/logo-dark.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo"><img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" width="169" height="38"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav" id="siteNav" aria-label="Main">
+                <a href="/services">Services</a>
+                <a href="/services/ai-integrations">AI integrations</a>
+                <a href="/services/mcp" aria-current="page">MCP servers</a>
+                <a href="/about">About</a>
+                <a href="/contact" class="nav-cta">Start a project</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <header class="page-header">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/services">Services</a><span>/</span><span>MCP servers</span></nav>
+                <span class="eyebrow">Service 05</span>
+                <h1>MCP servers for Shopify, and for anything else with an API</h1>
+                <p class="lead">We design, build and host Model Context Protocol (MCP) servers. They let AI assistants like Claude, ChatGPT and Cursor look things up and take actions in your systems, with permissions you control.</p>
+                <p class="works-with">Works with</p>
+                <ul class="logo-row">
+                    <li style="--brand: #000000"><span class="brand-icon" style="--icon: url(/assets/brands/modelcontextprotocol.svg)" aria-hidden="true"></span>MCP</li>
+                    <li style="--brand: #D97757"><span class="brand-icon" style="--icon: url(/assets/brands/claude.svg)" aria-hidden="true"></span>Claude</li>
+                    <li style="--brand: #000000"><span class="brand-icon" style="--icon: url(/assets/brands/cursor.svg)" aria-hidden="true"></span>Cursor</li>
+                    <li style="--brand: #7AB55C"><span class="brand-icon" style="--icon: url(/assets/brands/shopify.svg)" aria-hidden="true"></span>Shopify</li>
+                    <li style="--brand: #4169E1"><span class="brand-icon" style="--icon: url(/assets/brands/postgresql.svg)" aria-hidden="true"></span>PostgreSQL</li>
+                    <li style="--brand: #635BFF"><span class="brand-icon" style="--icon: url(/assets/brands/stripe.svg)" aria-hidden="true"></span>Stripe</li>
+                    <li style="--brand: #FF7A59"><span class="brand-icon" style="--icon: url(/assets/brands/hubspot.svg)" aria-hidden="true"></span>HubSpot</li>
+                </ul>
+            </div>
+        </header>
+
+        <section class="section">
+            <div class="container columns-2">
+                <div>
+                    <span class="eyebrow">In plain terms</span>
+                    <h2 class="h2">What an MCP server does</h2>
+                    <div class="prose">
+                        <p>MCP is an open standard for connecting AI assistants to outside tools and data. Anthropic introduced it, and Claude, ChatGPT, Cursor, VS Code and other AI apps now support it.</p>
+                        <p>An <strong>MCP server</strong> is a small service that offers the assistant a short list of <strong>tools</strong>, such as "find an order", "check stock for a SKU" or "create a discount code". The assistant decides when to call them. Your server decides what it's allowed to do.</p>
+                        <p>Build it once, and it works in every assistant that supports MCP. Your team gets the same Shopify or CRM access in Claude, ChatGPT or their code editor.</p>
+                    </div>
+                </div>
+                <div class="code-panel light-code" aria-label="Example list of MCP tools for a Shopify store">
+                    <div class="code-panel-bar"><span>example-store-mcp: tools</span><span>access</span></div>
+<pre><code><span class="f">find_order</span>          <span class="c">read   order by number or email</span>
+<span class="f">list_low_stock</span>      <span class="c">read   SKUs under threshold, by location</span>
+<span class="f">get_product</span>         <span class="c">read   variants, price, inventory</span>
+<span class="f">sales_summary</span>       <span class="c">read   revenue by day, channel, product</span>
+<span class="f">create_discount</span>     <span class="k">write</span>  <span class="c">needs approval, max 20% off</span>
+<span class="f">tag_customer</span>        <span class="k">write</span>  <span class="c">limited to the "vip" and "wholesale" tags</span>
+<span class="f">refund_order</span>        <span class="c">not exposed, by design</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-white">
+            <div class="container split">
+                <div class="split-head">
+                    <h2 class="h2">What we build</h2>
+                    <p class="muted">Shopify is what we know best, but the same approach works for any system with an API or a database.</p>
+                </div>
+                <div class="offer-list">
+                    <div class="offer">
+                        <h3>Shopify MCP servers</h3>
+                        <div>
+                            <p>Give your team's assistant access to orders, products, inventory, customers, discounts and metafields through the Shopify Admin API. Typical uses: answering "where is my order" faster, inventory checks across locations, sales questions in plain English, bulk product edits with a review step.</p>
+                            <p class="tools">Admin GraphQL API &middot; Storefront API &middot; custom app or private install</p>
+                        </div>
+                    </div>
+                    <div class="offer">
+                        <h3>MCP for your own systems</h3>
+                        <div>
+                            <p>Your backend, internal APIs or database, exposed as a small set of safe, well-described tools. Read-only by default. Write actions are added one at a time, with limits.</p>
+                            <p class="tools">PostgreSQL &middot; MongoDB &middot; REST / GraphQL services &middot; Java / Node.js backends</p>
+                        </div>
+                    </div>
+                    <div class="offer">
+                        <h3>MCP for SaaS products</h3>
+                        <div>
+                            <p>If you run a software product, an MCP server lets your customers use it from their own AI assistant. We build it on top of your public API, with OAuth so each user signs in as themselves.</p>
+                            <p class="tools">Remote MCP (Streamable HTTP) &middot; OAuth 2.1 &middot; per-user scopes</p>
+                        </div>
+                    </div>
+                    <div class="offer">
+                        <h3>Third-party connections</h3>
+                        <div>
+                            <p>CRMs, helpdesks, spreadsheets, payment and shipping providers. Where a good official MCP server already exists, we'll set that up instead of building a new one.</p>
+                            <p class="tools">HubSpot &middot; Salesforce &middot; Zendesk &middot; Google Sheets &middot; Stripe</p>
+                        </div>
+                    </div>
+                    <div class="offer">
+                        <h3>Rollout to your team</h3>
+                        <div>
+                            <p>Connecting the server to the assistants your team actually uses, writing a one-page guide, and setting who can use which tools.</p>
+                            <p class="tools">Claude &middot; ChatGPT &middot; Cursor &middot; VS Code &middot; Claude Code</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <span class="eyebrow">Safety</span>
+                <h2 class="h2 mb-32">What every server ships with</h2>
+                <div class="columns-2">
+                    <ul class="ticks">
+                        <li><strong>Least privilege.</strong> Only the API scopes the tools need, and read-only unless you ask for more.</li>
+                        <li><strong>Guarded write actions.</strong> Limits on amounts and counts, and a confirmation step for anything that's hard to undo.</li>
+                        <li><strong>Sign-in.</strong> OAuth or API keys per user or team, never one shared admin token.</li>
+                    </ul>
+                    <ul class="ticks">
+                        <li><strong>Audit log</strong> of every tool call: who, what, when and the result.</li>
+                        <li><strong>Clear tool descriptions,</strong> so the assistant picks the right tool and doesn't guess.</li>
+                        <li><strong>Hosting in your account:</strong> Vercel, AWS, GCP, Azure or Cloudflare, with the code in your repository.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt">
+            <div class="container split">
+                <div class="split-head">
+                    <h2 class="h2">Questions</h2>
+                </div>
+                <div class="faq">
+                    <details>
+                        <summary>Doesn't Shopify already have MCP?</summary>
+                        <p>Shopify provides some MCP servers of its own, for example for storefront shopping and developer documentation. We use those where they fit. Custom servers cover what they don't, which is usually your admin data (orders, inventory, customers) and the workflows specific to your business.</p>
+                    </details>
+                    <details>
+                        <summary>How is this different from a chatbot?</summary>
+                        <p>A chatbot is something we build and put on your website for your customers. An MCP server gives an assistant you already use, such as Claude or ChatGPT, the ability to work with your systems. A sensible path is to start with MCP for your own team, then build a customer-facing chatbot once you trust the answers.</p>
+                    </details>
+                    <details>
+                        <summary>Can the AI do something destructive?</summary>
+                        <p>Only if a tool allows it, and we don't build tools that do. Refunds, deletions and bulk price changes are either left out or wrapped in limits plus a human confirmation. The server enforces this regardless of what the assistant asks for.</p>
+                    </details>
+                    <details>
+                        <summary>Local or remote server?</summary>
+                        <p>Local (stdio) servers are quick for one developer's machine. For a team or customers we build remote servers over HTTP with proper sign-in, so nobody has to install anything or hold credentials on their laptop.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band on-dark">
+            <div class="container cta-band-inner">
+                <div>
+                    <h2>Want your assistant to work with your store or systems?</h2>
+                    <p>Tell us which system and the first three things you'd like to ask it. That's usually enough to scope a first version.</p>
+                    <a href="/contact" class="btn btn-primary">Start a project <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                </div>
+                <div class="cta-direct">
+                    <div><span class="label">Email</span><a href="mailto:akash@makebig.in">akash@makebig.in</a></div>
+                    <div><span class="label">Phone</span><a href="tel:+918467406492">+91 84674 06492</a></div>
+                    <div><span class="label">WhatsApp</span><a href="https://wa.me/918467406492" rel="noopener">Message us</a></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" width="178" height="40">
+                    <p>A founder-led development studio in India. Websites, Shopify, AI integrations and MCP servers for businesses worldwide.</p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/services/frontend">Frontend</a></li>
+                        <li><a href="/services/backend">Backend &amp; APIs</a></li>
+                        <li><a href="/services/shopify">Shopify</a></li>
+                        <li><a href="/services/ai-integrations">AI &amp; chatbots</a></li>
+                        <li><a href="/services/mcp">MCP servers</a></li>
+                        <li><a href="/services/integrations">Integrations</a></li>
+                        <li><a href="/services/testing">Testing &amp; QA</a></li>
+                        <li><a href="/services/consulting">Consulting</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/services">All services</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:akash@makebig.in">akash@makebig.in</a></li>
+                        <li><a href="tel:+918467406492">+91 84674 06492</a></li>
+                        <li><a href="https://wa.me/918467406492" rel="noopener">WhatsApp</a></li>
+                        <li>India, IST (UTC+5:30)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; <span id="year">2026</span> MakeBig Digital Solutions</span>
+                <span>makebig.in</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/whatsapp-widget.js"></script>
+    <script src="/main.js"></script>
+</body>
+</html>

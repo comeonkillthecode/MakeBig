@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
         return res.status(400).json({ error: 'Invalid JSON in request body' });
     }
 
-    const { name, email, message } = body;
+    const { name, email, message, company, phone, service } = body;
 
     if (!name || !email || !message) {
         console.error('Missing fields:', { name, email, message });
@@ -39,8 +39,17 @@ module.exports = async (req, res) => {
         await resend.emails.send({
             from: 'akash@makebig.in',
             to: 'akash@makebig.in',
-            subject: `New Contact Form Submission from ${name}`,
-            text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+            reply_to: email,
+            subject: `New enquiry from ${name}${service ? ` (${service})` : ''}`,
+            text: [
+                `Name: ${name}`,
+                `Email: ${email}`,
+                `Company: ${company || '-'}`,
+                `Phone: ${phone || '-'}`,
+                `Service: ${service || '-'}`,
+                '',
+                message
+            ].join('\n')
         });
         return res.status(200).json({ message: 'Email sent successfully' });
     } catch (error) {

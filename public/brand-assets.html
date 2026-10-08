@@ -3,305 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Assets &amp; Logo Schemes — MakeBig Digital Solutions</title>
-    <meta name="description" content="Official brand assets, vector SVG logo color schemes, and design guidelines for MakeBig Digital Solutions.">
+    <title>Brand assets | MakeBig Digital Solutions</title>
+    <meta name="description" content="MakeBig logos, colour palette and type.">
     <link rel="canonical" href="https://makebig.in/brand-assets">
-    <link rel="icon" type="image/svg+xml" href="/assets/logo-icon.svg">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="/assets/logo-icon.png">
+    <meta property="og:title" content="Brand assets | MakeBig Digital Solutions">
+    <meta property="og:description" content="MakeBig logos, colour palette and type.">
+    <meta property="og:url" content="https://makebig.in/brand-assets">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://makebig.in/assets/logo-dark.png">
 
-    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
-    <style>
-        .brand-preview-card {
-            border-radius: var(--radius);
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            border: 1px solid var(--border);
-            position: relative;
-            transition: transform var(--transition);
-        }
-        .brand-preview-card:hover {
-            transform: translateY(-2px);
-        }
-        .brand-preview-card.dark-surface {
-            background: #0a0a0a;
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-        .brand-preview-card.light-surface {
-            background: #ffffff;
-            border-color: #e2e8f0;
-            color: #0f172a;
-        }
-        .brand-preview-card.mono-surface {
-            background: #141416;
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-        .logo-display {
-            max-width: 280px;
-            width: 100%;
-            height: auto;
-            margin-bottom: 24px;
-        }
-        .scheme-meta {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 16px;
-            border-top: 1px solid rgba(128, 128, 128, 0.2);
-            font-size: 0.85rem;
-        }
-        .color-palette-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 32px;
-        }
-        .palette-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-        }
-        .palette-swatch {
-            height: 90px;
-            width: 100%;
-        }
-        .palette-info {
-            padding: 16px;
-        }
-        .palette-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 4px;
-        }
-        .palette-hex {
-            font-family: monospace;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-    </style>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- ===== Navbar ===== -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="/" class="nav-logo">
-                <img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" class="nav-logo-img">
-            </a>
-            <div class="nav-links" id="navLinks">
-                <a href="/" class="nav-link">Home</a>
-                <a href="/services" class="nav-link">Services</a>
-                <a href="/about" class="nav-link">About</a>
-                <a href="/contact" class="nav-link">Contact</a>
-            </div>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo"><img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" width="169" height="38"></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav">
+                <span></span><span></span><span></span>
             </button>
+            <nav class="nav" id="siteNav" aria-label="Main">
+                <a href="/services">Services</a>
+                <a href="/services/ai-integrations">AI integrations</a>
+                <a href="/services/mcp">MCP servers</a>
+                <a href="/about">About</a>
+                <a href="/contact" class="nav-cta">Start a project</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- ===== Hero ===== -->
-    <section class="page-hero">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="/">Home</a>
-                <span>/</span>
-                <span>Brand Assets</span>
+    <main id="main">
+        <header class="page-header">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Brand assets</span></nav>
+                <span class="eyebrow">Brand</span>
+                <h1>Logo, colour and type</h1>
+                <p class="lead">The reference for anything carrying the MakeBig name: proposals, invoices, social posts and the website. The same tokens are defined at the top of <code>styles.css</code>.</p>
             </div>
-            <h1 class="page-hero-title">Brand Assets &amp; Logos</h1>
-            <p class="page-hero-subtitle">Official vector SVG logo schemes and brand identity guidelines for MakeBig Digital Solutions.</p>
-        </div>
-    </section>
+        </header>
 
-    <!-- ===== Logo Schemes Showcase ===== -->
-    <section class="section" style="padding-top: 40px;">
-        <div class="container">
-            
-            <div class="section-header">
-                <span class="section-label">Official Tagline</span>
-                <h2 class="section-title">Where Digital Ideas Scale Big</h2>
-                <p class="section-subtitle">Designed to represent scalable digital architecture, global connectivity, and high-impact business growth.</p>
-            </div>
-
-            <!-- Grid of 3 schemes -->
-            <div class="cards-grid">
-                
-                <!-- Scheme 1: Primary Dark -->
-                <div class="card" style="padding: 24px;">
-                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Scheme 1: Primary Dark (Website)</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px;">Optimized for dark mode surfaces, web headers, and digital interfaces.</p>
-                    
-                    <div class="brand-preview-card dark-surface">
-                        <img src="/assets/logo-dark.svg" alt="MakeBig Logo - Dark Scheme" class="logo-display">
-                        <div class="scheme-meta" style="color: #a0a0a0;">
-                            <span>Orange + Pure White</span>
-                            <a href="/assets/logo-dark.svg" download class="btn-primary btn" style="padding: 6px 14px; font-size: 0.8rem;">
-                                <i class="fas fa-download"></i> SVG
-                            </a>
-                        </div>
+        <section class="section">
+            <div class="container">
+                <h2 class="h2">Logo</h2>
+                <p class="muted mb-40">The wordmark is white and orange, so place it on Ink 900 or a photo dark enough to keep it readable. On light paper, use the MB mark on its own.</p>
+                <div class="logo-tiles">
+                    <div class="logo-tile dark">
+                        <img src="/assets/logo-dark.svg" alt="MakeBig full logo on dark">
+                        <span>Full logo on Ink 900: header, footer, slides &middot; <a href="/assets/logo-dark.svg" download>SVG</a> &middot; <a href="/assets/logo-dark.png" download>PNG</a></span>
                     </div>
-                </div>
-
-                <!-- Scheme 2: Light Mode -->
-                <div class="card" style="padding: 24px;">
-                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Scheme 2: Clean Light Mode</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px;">For light backgrounds, PDF proposals, contracts, invoices, and letterheads.</p>
-                    
-                    <div class="brand-preview-card light-surface">
-                        <img src="/assets/logo-light.svg" alt="MakeBig Logo - Light Scheme" class="logo-display">
-                        <div class="scheme-meta" style="color: #475569;">
-                            <span>Orange + Deep Slate</span>
-                            <a href="/assets/logo-light.svg" download class="btn-primary btn" style="padding: 6px 14px; font-size: 0.8rem;">
-                                <i class="fas fa-download"></i> SVG
-                            </a>
-                        </div>
+                    <div class="logo-tile light">
+                        <img src="/assets/logo-icon.png" alt="MakeBig MB mark">
+                        <span>MB mark: favicon, avatars, light documents &middot; <a href="/assets/logo-icon.svg" download>SVG</a> &middot; <a href="/assets/logo-icon.png" download>PNG</a></span>
                     </div>
-                </div>
-
-                <!-- Scheme 3: Monochrome White -->
-                <div class="card" style="padding: 24px;">
-                    <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Scheme 3: Monochrome Silver</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px;">Minimalist luxury scheme for high-contrast dark accents and monochrome prints.</p>
-                    
-                    <div class="brand-preview-card mono-surface">
-                        <img src="/assets/logo-white.svg" alt="MakeBig Logo - Monochrome Scheme" class="logo-display">
-                        <div class="scheme-meta" style="color: #94a3b8;">
-                            <span>Pure White + Silver</span>
-                            <a href="/assets/logo-white.svg" download class="btn-primary btn" style="padding: 6px 14px; font-size: 0.8rem;">
-                                <i class="fas fa-download"></i> SVG
-                            </a>
-                        </div>
+                    <div class="logo-tile dark">
+                        <img src="/assets/logo-stacked.png" alt="MakeBig stacked logo">
+                        <span>Stacked: square formats &middot; <a href="/assets/logo-stacked.svg" download>SVG</a> &middot; <a href="/assets/logo-stacked.png" download>PNG</a></span>
                     </div>
-                </div>
-
-            </div>
-
-            <!-- Standalone Icon / Favicon Mark -->
-            <div style="margin-top: 60px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px;">
-                <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px;">
-                    <div style="max-width: 500px;">
-                        <span class="section-label">Icon Mark</span>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 12px;">App Icon &amp; Favicon Vector</h3>
-                        <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">
-                            Square vector mark featuring the orbital scaling arc and digital globe network. Scalable from 16x16 browser favicons to 512x512 app icons.
-                        </p>
-                        <a href="/assets/logo-icon.svg" download class="btn btn-secondary">
-                            <i class="fas fa-download"></i> Download Icon SVG
-                        </a>
-                    </div>
-                    <div style="display: flex; gap: 24px; align-items: center;">
-                        <div style="background: #0a0a0a; border: 1px solid var(--border); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-                            <img src="/assets/logo-icon.svg" alt="MakeBig Icon" style="width: 72px; height: 72px;">
-                            <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 8px;">64px / Dark</span>
-                        </div>
-                        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-                            <img src="/assets/logo-icon.svg" alt="MakeBig Icon" style="width: 72px; height: 72px;">
-                            <span style="font-size: 0.75rem; color: #64748b; margin-top: 8px;">64px / Light</span>
-                        </div>
+                    <div class="logo-tile dark">
+                        <img src="/assets/logo-text.png" alt="MakeBig wordmark">
+                        <span>Wordmark only: narrow spaces &middot; <a href="/assets/logo-text.png" download>PNG</a></span>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Brand Color Codes -->
-            <div style="margin-top: 80px;">
-                <div class="section-header">
-                    <span class="section-label">Color System</span>
-                    <h2 class="section-title">Brand Color Palette</h2>
+        <section class="section section-white">
+            <div class="container">
+                <h2 class="h2">Colour</h2>
+                <p class="muted mb-40">Mostly ink and paper. Orange is for actions and small marks, not large backgrounds. Text on orange is always Ink 900.</p>
+
+                <h3 class="mb-16">Ink</h3>
+                <div class="swatches mb-40">
+                    <div class="swatch"><div class="swatch-chip" style="background:#16181D"></div><div class="swatch-info"><b>Ink 900</b><span>#16181D</span></div></div>
+                    <div class="swatch"><div class="swatch-chip" style="background:#1F2228"></div><div class="swatch-info"><b>Ink 800</b><span>#1F2228</span></div></div>
+                    <div class="swatch"><div class="swatch-chip" style="background:#2C3038"></div><div class="swatch-info"><b>Ink 700</b><span>#2C3038</span></div></div>
+                    <div class="swatch"><div class="swatch-chip" style="background:#4B5059"></div><div class="swatch-info"><b>Ink 600</b><span>#4B5059</span></div></div>
+                    <div class="swatch"><div class="swatch-chip" style="background:#6B7079"></div><div class="swatch-info"><b>Ink 500</b><span>#6B7079</span></div></div>
+                    <div class="swatch"><div class="swatch-chip" style="background:#A3A7AE"></div><div class="swatch-info"><b>Ink 300</b><span>#A3A7AE</span></div></div>
+                    <div class="swatch"><div class="swatch-chip" style="background:#C9CCD1"></div><div class="swatch-info"><b>Ink 200</b><span>#C9CCD1</span></div></div>
                 </div>
-                <div class="color-palette-grid">
-                    <div class="palette-card">
-                        <div class="palette-swatch" style="background: #F28C28;"></div>
-                        <div class="palette-info">
-                            <div class="palette-name">MakeBig Orange</div>
-                            <div class="palette-hex">#F28C28</div>
-                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Primary Brand Accent</div>
-                        </div>
-                    </div>
-                    <div class="palette-card">
-                        <div class="palette-swatch" style="background: #0A0A0A; border-bottom: 1px solid var(--border);"></div>
-                        <div class="palette-info">
-                            <div class="palette-name">Deep Void Black</div>
-                            <div class="palette-hex">#0A0A0A</div>
-                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Primary Dark Canvas</div>
-                        </div>
-                    </div>
-                    <div class="palette-card">
-                        <div class="palette-swatch" style="background: #FFFFFF;"></div>
-                        <div class="palette-info">
-                            <div class="palette-name">Pure White</div>
-                            <div class="palette-hex">#FFFFFF</div>
-                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Headings &amp; Contrast</div>
-                        </div>
-                    </div>
-                    <div class="palette-card">
-                        <div class="palette-swatch" style="background: #0F172A;"></div>
-                        <div class="palette-info">
-                            <div class="palette-name">Slate Charcoal</div>
-                            <div class="palette-hex">#0F172A</div>
-                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Light Mode Typography</div>
-                        </div>
-                    </div>
+
+                <h3 class="mb-16">Paper</h3>
+                <div class="swatches mb-40">
+                    <div class="swatch"><div class="swatch-chip" style="background:#F7F5F0"></div><div class="swatch-info"><b>Paper</b><span>#F7F5F0</span></div></div>
+                    <div class="swatch"><div class="swatch-chip" style="background:#EFECE5"></div><div class="swatch-info"><b>Paper 2</b><span>#EFECE5</span></div></div>
+                    <div class="swatch"><div class="swatch-chip" style="background:#FFFFFF"></div><div class="swatch-info"><b>White</b><span>#FFFFFF</span></div></div>
+                    <div class="swatch"><div class="swatch-chip" style="background:#E2DED5"></div><div class="swatch-info"><b>Line</b><span>#E2DED5</span></div></div>
+                </div>
+
+                <h3 class="mb-16">Brand orange</h3>
+                <div class="swatches">
+                    <div class="swatch"><div class="swatch-chip" style="background:#EE6A1B"></div><div class="swatch-info"><b>Orange 500</b><span>#EE6A1B &middot; buttons</span></div></div>
+                    <div class="swatch"><div class="swatch-chip" style="background:#D45A12"></div><div class="swatch-info"><b>Orange 600</b><span>#D45A12 &middot; hover</span></div></div>
+                    <div class="swatch"><div class="swatch-chip" style="background:#A8450D"></div><div class="swatch-info"><b>Orange 700</b><span>#A8450D &middot; text on light</span></div></div>
+                    <div class="swatch"><div class="swatch-chip" style="background:#F3A26B"></div><div class="swatch-info"><b>Orange 300</b><span>#F3A26B &middot; text on dark</span></div></div>
+                    <div class="swatch"><div class="swatch-chip" style="background:#FBE8DA"></div><div class="swatch-info"><b>Orange 100</b><span>#FBE8DA &middot; highlight</span></div></div>
                 </div>
             </div>
+        </section>
 
-        </div>
-    </section>
+        <section class="section">
+            <div class="container split">
+                <div class="split-head">
+                    <h2 class="h2">Type</h2>
+                </div>
+                <dl class="stack">
+                    <div class="stack-row"><dt>IBM Plex Sans</dt><dd>Headings (600) and body (400). Headings are sentence case.</dd></div>
+                    <div class="stack-row"><dt>IBM Plex Mono</dt><dd class="mono">Code, small labels and numbering (400, 500).</dd></div>
+                </dl>
+            </div>
+        </section>
+    </main>
 
-    <!-- ===== Footer ===== -->
-    <footer class="footer">
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-section">
-                    <div class="footer-brand">
-                        <img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" class="footer-logo-img">
-                    </div>
-                    <p class="footer-text">Where Digital Ideas Scale Big. Full-service web engineering, Shopify platforms, and custom integrations.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/918467406492" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    </div>
+                <div>
+                    <img src="/assets/logo-dark.svg" alt="MakeBig Digital Solutions" width="178" height="40">
+                    <p>A founder-led development studio in India. Websites, Shopify, AI integrations and MCP servers for businesses worldwide.</p>
                 </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">Services</h4>
-                    <div class="footer-links">
-                        <a href="/services/frontend">Frontend Development</a>
-                        <a href="/services/backend">Backend &amp; APIs</a>
-                        <a href="/services/shopify">Shopify &amp; eCommerce</a>
-                        <a href="/services/integrations">Integrations</a>
-                        <a href="/services/testing">Testing &amp; QA</a>
-                        <a href="/services/consulting">Tech Consulting</a>
-                    </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/services/frontend">Frontend</a></li>
+                        <li><a href="/services/backend">Backend &amp; APIs</a></li>
+                        <li><a href="/services/shopify">Shopify</a></li>
+                        <li><a href="/services/ai-integrations">AI &amp; chatbots</a></li>
+                        <li><a href="/services/mcp">MCP servers</a></li>
+                        <li><a href="/services/integrations">Integrations</a></li>
+                        <li><a href="/services/testing">Testing &amp; QA</a></li>
+                        <li><a href="/services/consulting">Consulting</a></li>
+                    </ul>
                 </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">Get in Touch</h4>
-                    <div class="footer-links">
-                        <a href="mailto:akash@makebig.in"><i class="fas fa-envelope" style="width:16px; margin-right:8px;"></i>akash@makebig.in</a>
-                        <a href="tel:+918467406492"><i class="fas fa-phone" style="width:16px; margin-right:8px;"></i>+91 846 740 6492</a>
-                        <a href="https://wa.me/918467406492"><i class="fab fa-whatsapp" style="width:16px; margin-right:8px;"></i>WhatsApp</a>
-                    </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/services">All services</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:akash@makebig.in">akash@makebig.in</a></li>
+                        <li><a href="tel:+918467406492">+91 84674 06492</a></li>
+                        <li><a href="https://wa.me/918467406492" rel="noopener">WhatsApp</a></li>
+                        <li>India, IST (UTC+5:30)</li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 MakeBig Digital Solutions. All rights reserved.</p>
+                <span>&copy; <span id="year">2026</span> MakeBig Digital Solutions</span>
+                <span>makebig.in</span>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="/whatsapp-widget.js"></script>
     <script src="/main.js"></script>
 </body>
